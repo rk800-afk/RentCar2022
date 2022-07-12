@@ -1,5 +1,6 @@
 const http = require("http");
 const express = require("express");
+const passport = require("passport");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
@@ -23,6 +24,9 @@ const bootstrap = () => {
   // for parsing application/xwww-
   app.use(bodyParser.urlencoded({ extended: true }));
   //form-urlencoded
+
+  // Passport INIT
+  app.use(passport.initialize())
 
   // set the view engine to ejs
   app.set('view engine', 'ejs');
