@@ -1,0 +1,51 @@
+.hero_section {
+  padding: 40px 0;
+}
+
+.grid_content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+}
+
+.rent_card {
+  padding-bottom: 40px;
+  grid-column: span 1 / span 1;
+}
+
+.rent_card_image {
+  width: 340px;
+  object-fit: contain;
+}
+
+.rent_card_tilte {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.rent_form {
+  grid-column: span 2 / span 2;
+  padding: 10px 40px;
+  border: 2px solid var(--text-black-color);
+  border-radius: 10px;
+}
+
+.rent_form_title {
+  text-align: center;
+  font-size: 22px;
+}
+
+.rent_card_prices {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.rent_price {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.rent_card_option {
+  margin: 20px 0;
+  font-size: 16px;
+}

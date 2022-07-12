@@ -1,0 +1,35 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "rom-care",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "nodemon app.js",
+    "database-up": "migrate-mongo up -f ./migrate-mongo-config.js",
+    "database-down": "migrate-mongo down -f ./migrate-mongo-config.js",
+    "database-status": "migrate-mongo status -f ./migrate-mongo-config.js"
+  },
+  "keywords": [
+    "car"
+  ],
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "gridfs-stream": "^1.1.1",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "migrate-mongo": "^9.0.0",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.3",
+    "multer": "^1.4.5-lts.1",
+    "multer-gridfs-storage": "^5.0.2",
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "path": "^0.12.7",
+    "util": "^0.12.4"
+  }
+}

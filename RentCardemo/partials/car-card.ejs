@@ -1,0 +1,50 @@
+<div class="rent_card">
+    <div class="rent_card_title_image">
+        <p><%= car.title %></p>
+    </div>
+    <img class="rent_card_image"
+        src="<%- include('../partials/path'); %><%= car.image?.filename %>" width="220"
+        height="120" alt="Smille">
+    <div class="rent_content_list">
+        <div class="list_container">
+            <img class="rent_list_svg" src="<%- include('../partials/path'); %>/local/images/fuel.svg" width="28"
+                height="28" alt="Benz">
+            <p class="rent_list_title">Бензин</p>
+        </div>
+        <div class="list_container">
+            <img class="rent_list_svg" src="<%- include('../partials/path'); %>/local/images/transmission.svg"
+                width="28" height="28" alt="Benz">
+            <p class="rent_list_title">Механіка</p>
+        </div>
+        <div class="list_container">
+            <img class="rent_list_svg" src="<%- include('../partials/path'); %>/local/images/seat.svg" width="28"
+                height="28" alt="Benz">
+            <p class="rent_list_title">5 сидений</p>
+        </div>
+        <div class="list_container">
+            <img class="rent_list_svg" src="<%- include('../partials/path'); %>/local/images/car.svg" width="28"
+                height="28" alt="Benz">
+            <p class="rent_list_title">4,3 л. (134 л.с)</p>
+        </div>
+    </div>
+    <div class="rent_card_prices">
+        <div class="rent_card_tile">
+            <p class="rent_card_day">1-2 суток</p>
+            <p class="rent_card_price">$30</p>
+        </div>
+        <div class="rent_card_tile">
+            <p class="rent_card_day">3-10 суток</p>
+            <p class="rent_card_price">$34</p>
+        </div>
+        <div class="rent_card_tile">
+            <p class="rent_card_day">11-20 суток</p>
+            <p class="rent_card_price">$43</p>
+        </div>
+        <div class="rent_card_tile">
+            <p class="rent_card_day">20 + суток</p>
+            <p class="rent_card_price">$34</p>
+        </div>
+    </div>
+
+    <button type="button" class="rent_card_confirm">Оренда</button>
+</div>

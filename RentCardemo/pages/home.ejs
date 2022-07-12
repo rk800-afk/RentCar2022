@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:4000/css/pages/home.css">
+    <%- include('../head/defaultHead'); %>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+</head>
+
+<body id="body">
+    <div class="wrapper">
+        <%- include('../partials/navbar'); %>
+
+            <%- include('../partials/sidebar'); %>
+
+                <main>
+                    <section class="hero_section">
+                        <div class="paralax_content_image">
+                            <img id="paralaxImage" class="paralax_image" src="<%- include('../partials/path'); %>/local/images/bimage.jpg"
+                                alt="paralax_image" />
+                            <div class="paralax_overlay"></div>
+                        </div>
+                        <div class="main_container">
+                            <div class="content_rent">
+                                <p class="rent_title">Оренда авто Львів</p>
+                                <p class="rent_sub_title">Економимо ваш час і гроші.</p>
+                                <button class="rent_button from-top" type="button">
+                                    <a href="<%- include('../partials/path'); %>/rent">Обрати авто</a>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <article class="article_splide_slider">
+                        <div class="splide_container">
+                            <p class="splide_title">Найпопулярніші моделі за найприємнішими цінами</p>
+
+                            <div class="splide">
+                                <div class="splide__track">
+                                    <ul class="splide__list">
+                                        
+                                        <% cars.forEach((car) => { %>
+                                            <li class="splide__slide content_rent_card">
+                                                <%- include('../partials/car-card', { car }); %>
+                                            </li>
+                                        <% }); %>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <section class="section_app_company">
+                        <p class="section_app_company_title">Компанія LeoDrive</p>
+
+                        <div class="main_container">
+                            <div class="content_company_card">
+                                <div class="company_card">
+                                    <img class="company_card_image" src="<%- include('../partials/path'); %>/local/images/web-site.svg" alt="">
+                                    <p class="company_card_title">Інтерактивний сайт</p>
+                                    <p class="company_card_desc">Здатен активно реагувати на дії користувачів, відчуття,
+                                        що інтерфейс володіє
+                                        інтелектом.</p>
+                                </div>
+                                <div class="company_card">
+                                    <img class="company_card_image" src="<%- include('../partials/path'); %>/local/images/insurance.svg" alt="">
+                                    <p class="company_card_title">Інтерактивний сайт</p>
+                                    <p class="company_card_desc">Здатен активно реагувати на дії користувачів, відчуття,
+                                        що інтерфейс володіє
+                                        інтелектом.</p>
+                                </div>
+                                <div class="company_card">
+                                    <img class="company_card_image" src="<%- include('../partials/path'); %>/local/images/group.svg" alt="">
+                                    <p class="company_card_title">Інтерактивний сайт</p>
+                                    <p class="company_card_desc">Здатен активно реагувати на дії користувачів, відчуття,
+                                        що інтерфейс володіє
+                                        інтелектом.</p>
+                                </div>
+                                <div class="company_card">
+                                    <img class="company_card_image" src="<%- include('../partials/path'); %>/local/images/dollar.svg" alt="">
+                                    <p class="company_card_title">Інтерактивний сайт</p>
+                                    <p class="company_card_desc">Здатен активно реагувати на дії користувачів, відчуття,
+                                        що інтерфейс володіє
+                                        інтелектом.</p>
+                                </div>
+                                <div class="company_card">
+                                    <img class="company_card_image" src="<%- include('../partials/path'); %>/local/images/like.svg" alt="">
+                                    <p class="company_card_title">Інтерактивний сайт</p>
+                                    <p class="company_card_desc">Здатен активно реагувати на дії користувачів, відчуття,
+                                        що інтерфейс володіє
+                                        інтелектом.</p>
+                                </div>
+                                <div class="company_card">
+                                    <img class="company_card_image" src="<%- include('../partials/path'); %>/local/images/smile.svg" alt="">
+                                    <p class="company_card_title">Інтерактивний сайт</p>
+                                    <p class="company_card_desc">Здатен активно реагувати на дії користувачів, відчуття,
+                                        що інтерфейс володіє
+                                        інтелектом.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <article class="news_article">
+                        <div class="main_container">
+                            <p class="article_title">Новини</p>
+                            <div class="news_content_card">
+                                <div class="news_card">
+                                    <img class="news_card_image"
+                                        src="<%- include('../partials/path'); %>/local/images/logo.png" alt="Title" />
+                                    <div class="content_title">
+                                        <p class="news_card_title">
+                                            В прокаті з'явивився новий суперкар!!!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="news_card">
+                                    <img class="news_card_image"
+                                        src="<%- include('../partials/path'); %>/local/images/logo.png" alt="Title" />
+                                    <div class="content_title">
+                                        <p class="news_card_title">
+                                            В прокаті з'явивився новий суперкар!!!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="news_card">
+                                    <img class="news_card_image"
+                                        src="<%- include('../partials/path'); %>/local/images/logo.png" alt="Title" />
+                                    <div class="content_title">
+                                        <p class="news_card_title">
+                                            В прокаті з'явивився новий суперкар!!!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <section class="section_info">
+                        <div class="main_container">
+                            <p>
+                                Ви хочете ознайомитися з визначними пам'ятками нашого міста або
+                                приїжджаєте до Львова з діловою метою? Для зручності Вам потрібен
+                                автомобіль. Оренда авто у Львові - найкраще рішення, під яким
+                                мається на увазі мобільність, практичність і доступна ціна. Ми
+                                надаємо транспортні засоби для всіх випадків життя. Це може бути
+                                туристична поїздка, зустріч з інвесторами, урочистий захід,
+                                трансфер гостей або ділових партнерів. Варіантів багато, тому наші
+                                послуги завжди затребувані. LeoDrive - надійна компанія, яка
+                                займає лідируючі позиції на ринку. Ми надаємо авто в оренду у
+                                Львові для місцевих жителів і для гостей міста. Можлива оренда
+                                авто з водієм і без, на добу або на кілька днів. В автопарку
+                                представлені японські автомобілі Toyota і Lexus. Це універсальні
+                                транспортні засоби, придатні для будь-яких умов експлуатації і для
+                                вирішення різноманітних завдань. Всі автомобілі знаходяться в
+                                ідеальному технічному стані. Ми ретельно за цим стежимо. Ви можете
+                                в будь-який час зв'язатися з нами та замовити авто напрокат у
+                                Львові! На які моменти потрібно звертати увагу, які документи
+                                необхідні і які у нас ціни, ми розповімо докладніше.
+                            </p>
+                        </div>
+                    </section>
+                </main>
+
+                <%- include('../partials/footer'); %>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('.splide', {
+                type: "loop",
+                perPage: 3,
+                gap: "2em",
+                autoplay: true,
+                interval: "3400",
+                speed: '400',
+                keyboard: "true",
+                updateOnMove: "true",
+                focus: "center",
+                classes: {
+                    // Add classes for pagination.
+                    pagination: 'splide__pagination your-class-pagination', // container
+                    page: 'splide__pagination__page your-class-page', // each button
+                },
+                breakpoints: {
+                    1000: {
+                        perPage: 2
+                    },
+                    800: {
+                        perPage: 1
+                    },
+                }
+            }).mount();
+        });
+    </script>
+    <script src="http://localhost:4000/js/index.js"></script>
+    <script src="http://localhost:4000/js/home.js"></script>
+</body>
+
+</html>

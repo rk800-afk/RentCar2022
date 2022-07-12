@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Reserv</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:4000/css/pages/reserv.css">
+    <%- include('../head/defaultHead'); %>
+</head>
+
+<body id="body">
+    <div class="wrapper">
+        <%- include('../partials/navbar'); %>
+
+            <%- include('../partials/sidebar'); %>
+
+                <main class="main_content">
+                    <section class="hero_section">
+                        <div class="main_container">
+                            <form class="grid_content">
+                                <div class="rent_card">
+                                    <img class="rent_card_image" src="/images/00a4a39c.png" alt="00a4a39c">
+                                    <p class="rent_card_tilte">Toyota RAV4 Hybrid</p>
+                                    <p class="rent_card_prices">Вартість оренди: <span class="rent_price">$</span><span
+                                            class="rent_price">69</span></p>
+                                    <ul class="rent_card_option">
+                                        <li>Кількість діб: <span>1</span></li>
+                                    </ul>
+
+                                    <label for="input_checkbox">
+                                        <input type="checkbox" name="input_checkbox" value="check" id="input_agree" />
+                                    </label>
+
+                                    <button type="submit">Submit</button>
+                                </div>
+                                <div class="rent_form">
+                                    <p class="rent_form_title">Форма бронювання</p>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </main>
+
+                <%- include('../partials/footer'); %>
+    </div>
+
+    <script src="http://localhost:4000/js/index.js"></script>
+    <script src="http://localhost:4000/js/reserv.js"></script>
+</body>
+
+</html>

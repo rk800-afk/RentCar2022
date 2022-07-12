@@ -1,0 +1,205 @@
+@media screen and (max-width: 1762px) {
+  .main_container {
+    max-width: 1100px;
+    padding: 0;
+  }
+  .rent_car_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .main_container {
+    max-width: initial;
+    width: initial;
+    padding: 0;
+    margin: 0 38px;
+  }
+  .rent_car_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+  .main_container {
+    padding: 0 15px;
+  }
+  nav {
+    display: none;
+  }
+  .hamburger_navbar {
+    display: block;
+    z-index: 151;
+  }
+  .header_btn {
+    display: none;
+  }
+  .header_phone {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .content_company_card {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .splide_container > .splide_title {
+    padding: 0 15px;
+  }
+  .form_arrow_image_title {
+    display: none;
+  }
+  .form_arrow_image {
+    display: none;
+  }
+  .section_form_container {
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 0 80px;
+  }
+  .callback_contacts {
+    position: relative;
+    margin: 0;
+  }
+
+  .callback_contacts::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+    right: 40px;
+    border-radius: 1000px;
+    border: 1.5px solid var(--text-hover-color);
+  }
+  .callback_form {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 40px;
+    border-top: none;
+    border-bottom: 3px solid var(--text-hover-color);
+  }
+
+  .main_container {
+    max-width: initial;
+    width: initial;
+    padding: 0;
+    margin: 0 38px;
+  }
+  .rent_car_container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .filter_content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .footer_content {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px 80px;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid_content {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+  .rent_card img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 750px) {
+  .content_company_card {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, fr);
+  }
+
+  .section_form_container {
+    padding: 0 40px;
+  }
+
+  .footer_content {
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 650px) {
+  .rent_car_container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer_content {
+    grid-template-columns: 1fr;
+    padding: 30px 50px;
+  }
+  .rent_title {
+    font-size: 34px;
+  }
+  .rent_sub_title {
+    font-size: 20px;
+  }
+
+  .news_content_card {
+    grid-template-columns: 1fr;
+  }
+  .header_phone {
+    margin-right: 10px;
+  }
+  .side_bar_content {
+    width: 60%;
+  }
+  .section_form_container {
+    padding: 0;
+  }
+  .filter_content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 777px) {
+  .rent_content_list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 483px) {
+  .callback_form {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .callback_contacts {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .callback_contacts_title {
+    padding-top: 5px;
+  }
+
+  .callback_form_title {
+    padding-top: 5px;
+  }
+
+  .callback_input {
+    padding-top: 15px;
+  }
+
+  .callback_button {
+    margin-top: 30px;
+  }
+
+  .filter_content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer_content {
+    padding: 30px 20px;
+    gap: 25px;
+  }
+}

@@ -1,0 +1,140 @@
+.map {
+  width: 100%;
+}
+
+.section_form {
+  position: relative;
+  background-color: var(--text-title-color);
+  padding: 30px 0;
+  background-image: url(/images/callcenter.jpg);
+  background-size: cover;
+}
+
+.section_form_overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--overlay-color);
+  z-index: 2;
+}
+
+.section_form_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.callback_contacts {
+  width: 100%;
+  margin-bottom: 60px;
+  padding: 30px 40px;
+  background-color: var(--body-background);
+  border-top-left-radius: 40px;
+  border-top: 3px solid var(--text-hover-color);
+  border-left: 3px solid var(--text-hover-color);
+}
+
+.callback_contacts_title {
+  padding-top: 20px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.callback_contacts_sub_title {
+  margin: 0;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.callback_contacts_description {
+  padding-top: 15px;
+}
+
+.form_arrow_image_title {
+  color: var(--text-color);
+  font-size: 30px;
+  width: 100%;
+  padding: 0 40px;
+  text-shadow: 2px 2px 2px var(--company-section);
+}
+
+.form_arrow_image {
+  margin-top: -50px;
+  width: 100%;
+  border-bottom-left-radius: 40px;
+  border-bottom: 3px solid var(--text-hover-color);
+  border-left: 3px solid var(--text-hover-color);
+  object-fit: cover;
+}
+
+.callback_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px 40px;
+  background-color: var(--body-background);
+  border-top-right-radius: 40px;
+  border-top: 3px solid var(--text-hover-color);
+  border-right: 3px solid var(--text-hover-color);
+}
+
+.callback_form_title {
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.callback_input {
+  resize: vertical;
+  width: 100%;
+  padding-top: 35px;
+  padding-bottom: 10px;
+  border: none;
+  background-color: var(--body-background);
+  border-bottom: 1.5px solid var(--background-content-color);
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.05s;
+}
+
+.callback_input:not(:first-child) {
+  margin-top: 10px;
+}
+
+.callback_input:hover,
+.callback_input:focus {
+  box-shadow: 0px 9px 6px -5px var(--overlay-color);
+  border-color: var(--text-hover-color);
+  transform: scale(1.03);
+}
+
+.callback_error {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  color: var(--text-error-color);
+  padding-top: 5px;
+  padding-left: 2.5px;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.callback_button {
+  width: 80%;
+  margin: auto;
+  margin-top: 65px;
+  padding: 10px 20px;
+  border: 2px solid var(--background-content-color);
+  background-color: var(--body-background);
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.callback_button:hover {
+  background-color: var(--background-content-color);
+  color: var(--text-hover-color);
+}
+
+.callback_input_error{
+  border-bottom: 1.5px solid red!important;
+}

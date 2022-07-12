@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Contact</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:4000/css/pages/contact.css">
+    <%- include('../head/defaultHead'); %>
+</head>
+
+<body id="body">
+    <div class="wrapper">
+        <%- include('../partials/navbar'); %>
+
+            <%- include('../partials/sidebar'); %>
+
+                <main class="main_content">
+                    <section class="map_container">
+                        <iframe class="map"
+                            src="https://www.google.com/maps/d/embed?mid=14Z1HUZGpkmoWthtLE_Dz8EoL6fXm3pjn" height="550"
+                            style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </section>
+                    <section class="section_form">
+                        <div class="section_form_overlay"></div>
+                        <div class="main_container">
+                            <div class="section_form_container">
+                                <div>
+                                    <div class="callback_contacts">
+                                        <p class="callback_contacts_title">Контакти</p>
+                                        <p class="callback_contacts_sub_title">Головний офіс:</p>
+                                        <p class="callback_contacts_description">Номер телефону київстар: +380963339567
+                                        </p>
+                                        <p class="callback_contacts_description">Номер телефону лайф: +380935639523</p>
+                                        <p class="callback_contacts_description">Пошта: emai@gmail.com</p>
+                                    </div>
+                                    <p class="form_arrow_image_title">За детальною інформацією, або при виникненні будь
+                                        яких питань,
+                                        заповнюйте форму зворотнього звязку і ми звяжемося з вами</p>
+                                    <img class="form_arrow_image" src="<%- include('../partials/path'); %>/local/images/arrow.png" alt="Arrow">
+                                </div>
+                                <form id="callback_form" class="callback_form">
+                                    <p class="callback_form_title">Напишіть нам</p>
+                                    <input id="callback_input_name" type="text" class="callback_input"
+                                        placeholder="Ім'я" autocomplete="username">
+                                    <p id="callback_name_error" class="callback_error">error</p>
+                                    <input id="callback_input_tel" type="tel" class="callback_input"
+                                        placeholder="Телефон" autocomplete="tel">
+                                    <p id="callback_tell_error" class="callback_error">error</p>
+                                    <input id="callback_input_email" type="text" class="callback_input"
+                                        placeholder="Email" autocomplete="email">
+                                    <p id="callback_email_error" class="callback_error">error</p>
+                                    <textarea id="callback_input_textarea" class="callback_input" rows="7"
+                                        placeholder="Введіть повідомлення"></textarea>
+                                    <p id="callback_textarea_error" class="callback_error">error</p>
+                                    <button type="submit" class="callback_button">Надіслати</button>
+                                </form>
+                            </div>
+                    </section>
+                </main>
+
+                <%- include('../partials/footer'); %>
+    </div>
+
+    <script src="http://localhost:4000/js/index.js"></script>
+    <script src="http://localhost:4000/js/contact.js"></script>
+</body>
+
+</html>
