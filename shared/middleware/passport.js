@@ -1,8 +1,7 @@
-const JwtStrategy = require("passport-jwt").Strategy;
-const ExtractJwt = require("passport-jwt").ExtractJwt;
+import JwtStrategy, { ExtractJwt } from "passport-jwt";
 
 // Model of the collection 'users'
-const { User } = require("../../db/models");
+import { User } from "../../db/models/index.mjs";
 
 // Configuration for jwt-strategy in 'passport'
 const options = {
@@ -10,10 +9,10 @@ const options = {
   secretOrKey: process.env.ACCESS_TOKEN || "secret"
 };
 
-module.exports = (passport) => {
+export default function (passport) {
   passport.use(
     // Create jwt-strategy in 'passport'
-    new JwtStrategy(options, async (payload, done) => {
+    new JwtStrategy.Strategy(options, async (payload, done) => {
       try {
         // Search document in collection 'users' with id
         const user = await User.findById(

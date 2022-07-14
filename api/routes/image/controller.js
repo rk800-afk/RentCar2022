@@ -1,12 +1,12 @@
-const { gridFSBucketService } = require('../../../shared/services/grid-fs-bucket')
+import { gridFSBucketService } from '../../../shared/services/grid-fs-bucket.mjs'
 
 // Model of the collection 'defibrillators'
-const { Car } = require('../../../db/models');
+import Car from '../../../db/models/Car.js';
 
 // Handler for server error
-const { resServerError } = require('../../../shared/utils');
+import { resServerError } from '../../../shared/utils/index.js';
 
-module.exports.getImage = async (req, res) => {
+export const getImage = async (req, res) => {
   try {
     gridFSBucketService.gfs.find({ filename: new RegExp(req.params.imageName, 'i') })
       .toArray((err, files) => {
@@ -24,7 +24,7 @@ module.exports.getImage = async (req, res) => {
   }
 };
 
-module.exports.createImage = async (req, res) => {
+export const createImage = async (req, res) => {
   try {
     const newImage = req.file
 
@@ -53,7 +53,7 @@ module.exports.createImage = async (req, res) => {
   }
 };
 
-module.exports.removeImage = async (req, res) => {
+export const removeImage = async (req, res) => {
   try {
     await Car.findByIdAndUpdate(
       req.params.carId,

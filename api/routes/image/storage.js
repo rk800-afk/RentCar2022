@@ -1,6 +1,6 @@
-const multer = require('multer')
-const { promisify } = require('util')
-const { GridFsStorage } = require('multer-gridfs-storage');
+import multer from 'multer'
+import { GridFsStorage } from 'multer-gridfs-storage';
+// import { promisify } from 'util'
 
 const MONGO_URL = 'mongodb://127.0.0.1:27017/';
 
@@ -23,4 +23,4 @@ const storage = new GridFsStorage({
   }
 });
 
-module.exports = multer({ storage });
+export default multer({ storage });

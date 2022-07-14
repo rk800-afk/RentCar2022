@@ -1,7 +1,9 @@
-const { authRouter, carRouter, imageRouter } = require("./routes");
+import { authRouter, carRouter, imageRouter } from "./routes/index.js";
 
-module.exports = (app) => {
+const API = (app) => {
   app.use("/api/auth", authRouter);
   app.use("/api/cars", carRouter);
   app.use("/api/image", imageRouter);
 };
+
+export default API

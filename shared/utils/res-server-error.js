@@ -6,6 +6,4 @@ const resServerError = (res, error) => {
     });
 };
 
-module.exports = {
-    resServerError
-};
+export default resServerError

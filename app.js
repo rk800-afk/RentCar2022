@@ -1,10 +1,15 @@
-const http = require("http");
-const express = require("express");
-const passport = require("passport");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+import http from "http";
+import express from "express";
+import passport from "passport";
+import cors from "cors";
+import bodyParser from "body-parser";
 
-const database = require("./db");
+import database from "./db/index.mjs";
+
+// MIDDLEWARE
+import middlewarePassport from "./shared/middleware/passport.js"
+import API from './api/index.js'
+import { filesRoutes } from './sendFiles/index.js'
 
 const app = express();
 
@@ -27,13 +32,13 @@ const bootstrap = () => {
 
   // Passport INIT
   app.use(passport.initialize())
-  require("./shared/middleware/passport")(passport)
+  middlewarePassport(passport)
 
   // set the view engine to ejs
   app.set('view engine', 'ejs');
 
-  require("./sendFiles")(app) // Render Images, Files, Pages, JS, Styles 
-  require("./api")(app); // API'S
+  filesRoutes(app)  // Render Images, Files, Pages, JS, Styles 
+  API(app); // API'S
 
   //     app.get('*', (_req, res) => {
   //         res.sendFile(
@@ -49,4 +54,4 @@ const bootstrap = () => {
 };
 
 // Start DataBase and Server
-database.bootstrap(bootstrap);
+database(bootstrap);

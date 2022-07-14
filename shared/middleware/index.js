@@ -1,8 +1,1 @@
-const {
-  JWTAuthPremission
-} = require('./premission');
-
-module.exports = {
-  // validate,
-  JWTAuthPremission
-};
+export { default as JWTAuthPremission } from './passport.js'

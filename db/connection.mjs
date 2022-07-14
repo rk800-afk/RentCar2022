@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const { gridFSBucketService } = require('../shared/services/grid-fs-bucket');
+import mongoose from 'mongoose';
+import { gridFSBucketService } from '../shared/services/grid-fs-bucket.mjs';
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/"
 const MONGO_DB = "rom-car";
@@ -26,5 +26,5 @@ function createConnection() {
   return connection;
 }
 
-module.exports = createConnection();
+export default createConnection();
 

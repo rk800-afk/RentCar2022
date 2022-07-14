@@ -1,23 +1,26 @@
-module.exports.viewHomePage = async (_req, res) => {
+import path from "path"
+import fetch from "node-fetch"
+
+export const viewHomePage = async (_req, res) => {
     let url = new URL("http://localhost:4000/api/cars")
     url.searchParams.append("limit", 4)
 
     const response = await fetch(url)
     const cars = await response.json().then(response => response.cars)
 
-    res.render('D:/Practic2022/RentCar2022/RentCardemo/pages/home', { 
+    res.render(path.resolve("RentCardemo/pages/home"), {
         cars
     });
 }
 
-module.exports.viewRentPage = (_req, res) => {
-    res.render('D:/Practic2022/RentCar2022/RentCardemo/pages/rent');
+export const viewRentPage = (_req, res) => {
+    res.render(path.resolve("RentCardemo/pages/rent"));
 }
 
-module.exports.viewContactPage = (_req, res) => {
-    res.render('D:/Practic2022/RentCar2022/RentCardemo/pages/contact.ejs');
+export const viewContactPage = (_req, res) => {
+    res.render(path.resolve("RentCardemo/pages/contact"));
 }
 
-module.exports.viewReservPage = (_req, res) => {
-    res.render('D:/Practic2022/RentCar2022/RentCardemo/pages/reserv.ejs');
+export const viewReservPage = (_req, res) => {
+    res.render(path.resolve("RentCardemo/pages/reserv"));
 }

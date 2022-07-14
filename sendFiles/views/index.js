@@ -1,5 +1,5 @@
-const express = require("express")
-const controler = require("./controller")
+import express from "express"
+import * as controler from "./controller.js"
 
 const router = express.Router()
 
@@ -8,4 +8,4 @@ router.get('/reserv', controler.viewReservPage)
 router.get('/', controler.viewHomePage)
 router.get('/contact', controler.viewContactPage)
 
-module.exports = router
+export default router

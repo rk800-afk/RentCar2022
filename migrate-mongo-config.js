@@ -1,9 +1,9 @@
-const path = require('path');
+import path from 'path';
 
 const config = {
   mongodb: {
-    databaseName: 'rom-car',
-    url: 'mongodb://127.0.0.1:27017/',
+    databaseName: process.env.MONGO_DB,
+    url: process.env.MONGO_URL,
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true
@@ -11,7 +11,7 @@ const config = {
   },
   migrationFileExtension: '.js',
   changelogCollectionName: 'changelog',
-  migrationsDir: path.resolve(__dirname, 'db', 'migrations')
+  migrationsDir: path.resolve(path.dirname("RentCar2022"), 'db', 'migrations')
 };
 
-module.exports = config;
+export default config;

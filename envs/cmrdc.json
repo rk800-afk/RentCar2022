@@ -1,17 +1,16 @@
 {
-    "development": {
-      "PORT": 3012,
-      "NODE_ENV": "development",
-      "BASE_URL": "http://localhost:3000",
-      "MONGO_URL": "mongodb://localhost:27017/",
-      "MONGO_DB": "defibrillatorDB",
-      "ACCESS_TOKEN": "jsjgosfdjogioaqOSSAJohhohdgdoghoo",
-      "ACCESS_TOKEN_EXPIRES": 830
-    },
-    "production": {
-      "NODE_ENV": "production",
-      "NODE_OPTIONS": "--http-parser=legacy",
-      "BASE_URL": "http://aed-map.pp.ua"
-    }
+  "development": {
+    "PORT": 4000,
+    "NODE_ENV": "development",
+    "BASE_URL": "http://localhost:3000",
+    "MONGO_URL": "mongodb://localhost:27017/",
+    "MONGO_DB": "rom-car",
+    "ACCESS_TOKEN": "jsjgosfdjogioaqOSSAJohhohdgdoghoo",
+    "ACCESS_TOKEN_EXPIRES": 830
+  },
+  "production": {
+    "NODE_ENV": "production",
+    "NODE_OPTIONS": "--http-parser=legacy",
+    "BASE_URL": "http://aed-map.pp.ua"
   }
-  
+}

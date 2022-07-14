@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const { ADMIN, USER } = require("../../shared/const/user-role");
+import { ADMIN, USER } from "../../shared/const/user-role.js";
 
 /*
   Model 'User'
@@ -32,4 +32,4 @@ const userSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model("users", userSchema);
+export default mongoose.model("users", userSchema);

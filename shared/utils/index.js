@@ -1,5 +1,1 @@
-const { resServerError } = require('./res-server-error');
-
-module.exports = {
-    resServerError,
-};
+export { default as resServerError } from "./res-server-error.js"

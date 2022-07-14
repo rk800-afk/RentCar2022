@@ -1,5 +1,5 @@
-require('./connection');
-const { up, database } = require('migrate-mongo');
+import './connection.mjs';
+import { up, database } from 'migrate-mongo';
 
 const emptyFn = () => null;
 
@@ -11,4 +11,4 @@ async function bootstrap(callback = emptyFn) {
   callback();
 }
 
-module.exports = bootstrap;
+export default bootstrap;

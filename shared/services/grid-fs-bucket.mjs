@@ -1,6 +1,6 @@
-const mongodb = require('mongodb');
-const mongoose = require('mongoose');
-const Grid = require('gridfs-stream');
+import mongodb from 'mongodb';
+import mongoose from 'mongoose';
+import Grid from 'gridfs-stream';
 
 class GridFSBucketService {
   get find() {
@@ -36,7 +36,7 @@ class GridFSBucketService {
 
 const gridFSBucketService = new GridFSBucketService();
 
-module.exports = {
+export {
   GridFSBucketService,
   gridFSBucketService
 };

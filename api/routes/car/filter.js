@@ -17,4 +17,4 @@ const createFilter = (req) => {
   return filter;
 };
 
-module.exports = { createFilter };
+export { createFilter };

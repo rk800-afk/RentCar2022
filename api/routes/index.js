@@ -1,9 +1,3 @@
-const authRouter = require('./auth');
-const carRouter = require('./car');
-const imageRouter = require('./image');
-
-module.exports = {
-   authRouter,
-   carRouter,
-   imageRouter
-};
+export { default as authRouter } from './auth/index.js'
+export { default as carRouter } from './car/index.js'
+export { default as imageRouter } from './image/index.js'

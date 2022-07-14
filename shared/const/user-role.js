@@ -1,7 +1,7 @@
 const USER = 'User';
 const ADMIN = 'Admin';
 
-module.exports = {
+export {
   USER,
   ADMIN
 };

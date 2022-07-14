@@ -1,20 +1,11 @@
-const express = require('express');
+import express from 'express';
 
-// Check permissions middleware
-// const {
-//   imageDeletePermission,
-//   imageCreatePermission
-// } = require('../../../shared/middleware');
+import * as controller from './controller.js';
 
-const controller = require('./controller');
-
-const upload = require('./storage');
+import upload from './storage.js';
 
 // Create router
 const router = express.Router();
-
-// // Route for receiving image
-// // router.get('/:imageName', controller.getImage);
 
 // Route for receiving image
 router.get('/:imageName', controller.getImage);
@@ -32,4 +23,4 @@ router.delete(
   controller.removeImage
 );
 
-module.exports = router;
+export default router;

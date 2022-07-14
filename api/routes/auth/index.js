@@ -1,9 +1,9 @@
-const express = require('express');
-const passport = require('passport');
+import express from "express";
+import passport from "passport";
 
-const { JWTAuthPremission } = require('../../../shared/middleware');
+import { JWTAuthPremission } from '../../../shared/middleware/index.js';
 
-const controller = require('./controller');
+import * as controller from './controller.js';
 
 const router = express.Router();
 
@@ -12,4 +12,4 @@ router.post('/signUp', controller.signUp);
 router.post('/logIn', controller.logIn);
 router.get('/logOut', controller.logOut);
 
-module.exports = router;
+export default router;

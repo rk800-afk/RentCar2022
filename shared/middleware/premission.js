@@ -1,18 +1,16 @@
-const jwt = require("jsonwebtoken")
+import jwt from "jsonwebtoken"
 
 const JWTAuthPremission = (req, res, next) => {
     const authToken = req.headers.authorization
 
-    jwt.verify(authToken, process.env.ACCESS_TOKEN,  
+    jwt.verify(authToken, process.env.ACCESS_TOKEN,
         async (err, payload) => {
-        if (err) {
-            res.json({message: `some error in ${err}`}) 
-            return;
-        }
-        return next();
-      })
+            if (err) {
+                res.json({ message: `some error in ${err}` })
+                return;
+            }
+            return next();
+        })
 }
 
-module.exports = {
-    JWTAuthPremission
-}
+export default JWTAuthPremission
