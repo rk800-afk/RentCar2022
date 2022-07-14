@@ -27,6 +27,7 @@ const bootstrap = () => {
 
   // Passport INIT
   app.use(passport.initialize())
+  require("./shared/middleware/passport")(passport)
 
   // set the view engine to ejs
   app.set('view engine', 'ejs');

@@ -1,12 +1,8 @@
-// // const { validate } = require('./validate');
-// const {
-//   imageCreatePermission,
-//   imageDeletePermission
-// } = require('./permission');
+const {
+  JWTAuthPremission
+} = require('./premission');
 
-// module.exports = {
-//   // validate,
-//   checkPermission,
-//   imageCreatePermission,
-//   imageDeletePermission
-// };
+module.exports = {
+  // validate,
+  JWTAuthPremission
+};
