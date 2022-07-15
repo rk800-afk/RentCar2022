@@ -3,6 +3,8 @@ import express from "express";
 import passport from "passport";
 import cors from "cors";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import session from "express-session";
 
 import database from "./db/index.mjs";
 
@@ -10,6 +12,7 @@ import database from "./db/index.mjs";
 import middlewarePassport from "./shared/middleware/passport.js"
 import API from './api/index.js'
 import { filesRoutes } from './sendFiles/index.js'
+import setUserToReq from "./shared/middleware/set-user-to-req.js";
 
 const app = express();
 
@@ -26,6 +29,7 @@ const bootstrap = () => {
       credentials: true,
     })
   );
+  app.use(cookieParser())
   // for parsing application/json
   app.use(bodyParser.json());
 
@@ -36,6 +40,15 @@ const bootstrap = () => {
   // Passport INIT
   app.use(passport.initialize())
   middlewarePassport(passport)
+
+  // Session 
+  app.use(session({
+    secret: process.env.ACCESS_TOKEN, // session secret
+    resave: true,
+    saveUninitialized: true
+  }))
+  app.use(passport.session())
+  app.use(setUserToReq) // save user in req
 
   // set the view engine to ejs
   app.set('view engine', 'ejs');

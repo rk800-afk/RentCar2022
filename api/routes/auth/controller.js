@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken"
 import bcryptjs from "bcryptjs"
 import { User } from "../../../db/models/index.mjs"
-
+import { LocalStorage } from "node-localstorage"
+const localStorage = new LocalStorage('./scratch');
 // V8 JS => NODEJS 01001010101
 // LIBUV => CROSS-PLATFORM, NON BLOCKING I/O, EVENT LOOP
 
@@ -28,6 +29,8 @@ export const signUp = async (req, res) => {
                 process.env.ACCESS_TOKEN,
                 { expiresIn: Number(process.env.ACCESS_TOKEN_EXPIRES) }
             );
+            localStorage.setItem("user", JSON.stringify({ user: { _id, email, role }, token }))
+            res.setHeader('Set-Cookie', `authorization=${token}; HttpOnly; Path=/; Max-Age=${process.env.ACCESS_TOKEN_EXPIRES}`)
             res.status(201).send({ newUser: { _id, email, role }, token })
         } else {
             res.status(400).send({ message: "User with this email exist!" })
@@ -56,7 +59,9 @@ export const logIn = async (req, res) => {
                     { expiresIn: Number(process.env.ACCESS_TOKEN_EXPIRES) }
                 );
 
-                res.setHeader('Set-Cookie', `authorization=${token}; HttpOnly; Path=/; Max-Age=${process.env.ACCESS_TOKEN_EXPIRES}}`)
+                localStorage.setItem("user", JSON.stringify({ user: { _id, email, role }, token }))
+
+                res.setHeader('Set-Cookie', `authorization=${token}; HttpOnly; Path=/; Max-Age=${process.env.ACCESS_TOKEN_EXPIRES}`)
                 res.send({ user: { _id, email, role }, token })
             } else {
                 res.status(400).send({ message: "User password not correct!" })
@@ -71,8 +76,10 @@ export const logIn = async (req, res) => {
 
 export const logOut = async (req, res) => {
     try {
+        localStorage.removeItem("user")
+        req.session.destroy()
         res.setHeader('Set-Cookie', `authorization=; HttpOnly; Path=/; Max-Age=0`)
-        res.json({ message: "You are logout!" })
+        res.status(200).json({})
     } catch (error) {
         console.log(error?.message);
     }

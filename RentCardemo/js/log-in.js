@@ -11,7 +11,7 @@ const regEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function notValid(input, el, mess, e) {
     input.classList.add("callback_input_error")
-    toast.toastify(mess, "error")
+    toast.toastify(mess, "white")
     // el.innerText = mess
     // el.style.visibility = "visible";
     // el.style.opacity = "1"
@@ -43,12 +43,12 @@ logInForm.addEventListener("submit", async (e) => {
                 if (res?.user) {
                     authService.setUserToLocalStorage(res.user)
                     authService.redirectUser()
-                    toast.toastify("Success", "dark", 3000)
+                    // toast.toastify("Success", "dark", 3000)
                     return
                 }
                 toast.toastify(res.message, "error")
             })
-            .catch(err => toast.toastify(err.message, "error", 4300))
+            .catch(err => toast.toastify(err.message, "error", 3000))
     }
 })
 

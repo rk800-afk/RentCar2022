@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken"
+import parseCookies from "../utils/getCookies"
 
 const JWTAuthPremission = (req, res, next) => {
-    const authToken = req.headers.authorization
+    const authToken = parseCookies(req)?.authorization || null
 
     jwt.verify(authToken, process.env.ACCESS_TOKEN,
         async (err, payload) => {

@@ -168,6 +168,9 @@
 }
 
 @media (max-width: 483px) {
+  .main_container{
+    margin: 0 10px;
+  }
   .callback_form {
     padding-left: 20px;
     padding-right: 20px;
