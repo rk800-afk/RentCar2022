@@ -1,0 +1,81 @@
+.main_content {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   margin-top: initial !important;
+}
+
+.form {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cont-inp {
+    position: relative;
+    transition: transform 340ms;
+}
+
+input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 0;
+    outline: none;
+    transition: transform 340ms, outline 250ms;
+}
+
+.callback_input_error {
+    outline: 2px solid palevioletred;
+}
+
+.cont-inp::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    background-color: black;
+    height: 2px;
+    width: 0;
+    transition: width 340ms;
+}
+
+.cont-inp:hover::after, .cont-inp:focus-within::after {
+    width: 100%;
+}
+
+.cont-inp:hover, .cont-inp:focus-within {
+    transform: scale(1.05);
+}
+
+.form-btn {
+    color: white;
+    background-color: black;
+    padding: 14px;
+    transition: color 340ms, background 340ms, outline 250ms;
+}
+
+.form-btn:hover {
+    color: black;
+    background-color: white;
+    outline: 2px solid black;
+}
+
+.toast-modal_info {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    z-index: 9999;
+    transform: translate(-50%, -200%);
+    padding: 14px 15px;
+    color: white;
+    background-color: black;
+    transition: transform 430ms;    
+}
+
+.toast-modal_info.active {
+    transform: translate(-50%, 0);
+}
+

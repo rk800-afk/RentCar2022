@@ -1,12 +1,9 @@
 import mongoose from 'mongoose';
 import { gridFSBucketService } from '../shared/services/grid-fs-bucket.mjs';
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/"
-const MONGO_DB = "rom-car";
-
 function createConnection() {
-  mongoose.connect(`${MONGO_URL}${MONGO_DB}`, {
-    dbName: MONGO_DB,
+  mongoose.connect(`${process.env.MONGO_URL}${process.env.MONGO_DB}`, {
+    dbName: process.env.MONGO_DB,
     useNewUrlParser: true,
     useUnifiedTopology: true
   });

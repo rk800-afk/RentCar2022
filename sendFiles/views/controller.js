@@ -13,7 +13,14 @@ export const viewHomePage = async (_req, res) => {
     });
 }
 
-export const viewRentPage = (_req, res) => {
+export const viewLogInvPage = (_req, res) => {
+    res.render(path.resolve("RentCardemo/pages/admin"));
+}
+
+export const viewRentPage = async (_req, res) => {
+    const response = await fetch("http://localhost:4000/api/auth/getUser", { headers: { 'authorization': `Bearer ${_req.headers?.cookie.split("=")[1]}` } })
+    console.log(response);
+
     res.render(path.resolve("RentCardemo/pages/rent"));
 }
 
@@ -24,3 +31,4 @@ export const viewContactPage = (_req, res) => {
 export const viewReservPage = (_req, res) => {
     res.render(path.resolve("RentCardemo/pages/reserv"));
 }
+

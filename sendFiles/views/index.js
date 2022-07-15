@@ -3,6 +3,7 @@ import * as controler from "./controller.js"
 
 const router = express.Router()
 
+router.get('/admin', controler.viewLogInvPage)
 router.get('/rent', controler.viewRentPage)
 router.get('/reserv', controler.viewReservPage)
 router.get('/', controler.viewHomePage)

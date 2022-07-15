@@ -42,6 +42,8 @@ export const logIn = async (req, res) => {
         const { email, role, password } = req.body
         const cantidate = await User.findOne({ email })
 
+        console.log(req);
+
         if (cantidate) {
             const checkPass = bcryptjs.compareSync(password, cantidate.password)
             if (checkPass) {
