@@ -1,6 +1,6 @@
 export class AuthSevice {
     constructor() {
-
+        
     }
 
     async logIn(data) {
@@ -11,7 +11,7 @@ export class AuthSevice {
     }
 
     async getUser() {
-        const response = await fetch({ url: "http://localhost:4000/api/auth/getUser", credentials: "include" })
+        const response = await fetch('http://localhost:4000/api/auth/getUser', { credentials: "include" })
         const { user, message } = response.json(res => res.user)
 
         console.log(message);
@@ -22,6 +22,12 @@ export class AuthSevice {
         }
 
         return user
+    }
+
+    async logoutUser() {
+        const response = await fetch('http://localhost:4000/api/auth/logOut', { credentials: "include" })
+        this.clearUserFromLocalStorage()
+        return await response.json()
     }
 
     redirectUser() {

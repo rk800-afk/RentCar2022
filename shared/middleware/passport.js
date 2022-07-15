@@ -3,9 +3,15 @@ import JwtStrategy, { ExtractJwt } from "passport-jwt";
 // Model of the collection 'users'
 import { User } from "../../db/models/index.mjs";
 
+const cookieExtractor = function(req) {
+  let token = null;
+  if (req && req.cookies) token = req.cookies['authorization'];
+  return token;
+};
+
 // Configuration for jwt-strategy in 'passport'
 const options = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  jwtFromRequest: cookieExtractor,
   secretOrKey: process.env.ACCESS_TOKEN || "secret"
 };
 

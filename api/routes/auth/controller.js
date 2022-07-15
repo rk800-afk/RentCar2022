@@ -56,7 +56,7 @@ export const logIn = async (req, res) => {
                     { expiresIn: Number(process.env.ACCESS_TOKEN_EXPIRES) }
                 );
 
-                res.setHeader('Set-Cookie', `authorization=${token}; HttpOnly; Path=/; Max-Age=${process.env.ACCESS_TOKEN_EXPIRES}}`)
+                res.setHeader('Set-Cookie', `authorization=${token}; HttpOnly; Path=/; Max-Age=${process.env.ACCESS_TOKEN_EXPIRES}s}`)
                 res.send({ user: { _id, email, role }, token })
             } else {
                 res.status(400).send({ message: "User password not correct!" })
