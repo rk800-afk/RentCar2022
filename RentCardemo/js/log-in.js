@@ -1,28 +1,17 @@
 import { AuthSevice } from "./auth-service.js"
+import { Toast } from "./toast.js"
 
 const authService = new AuthSevice()
+const toast = new Toast()
 
 const logInForm = document.querySelectorAll("#form")[0]
 const inputEmail = document.getElementById("email")
 const inputPassword = document.getElementById("password")
-const toast = document.querySelectorAll(".toast-modal_info")[0]
 const regEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function notValid(input, el, mess, e) {
     input.classList.add("callback_input_error")
-    toast.classList.add("active")
-
-    if(toast.children.length !== 0) {
-        toast.innerHTML = ""
-    }
-
-    const p = document.createElement("p")
-    p.innerText = mess
-    toast.appendChild(p) 
-
-    setTimeout(() => {
-        toast.classList.remove("active")
-    }, 3000)
+    toast.toastify(mess, "error")
     // el.innerText = mess
     // el.style.visibility = "visible";
     // el.style.opacity = "1"
@@ -45,12 +34,21 @@ function ValidateForm(e) {
     return true
 }
 
-logInForm.addEventListener("submit", (e) => {
+logInForm.addEventListener("submit", async (e) => {
     e.preventDefault()
     const isValid = ValidateForm(e)
-    console.log(isValid);
-    if(isValid) {
-        authService.logIn({ email: inputEmail.value, password: inputPassword.value })
+    if (isValid) {
+        await authService.logIn({ email: inputEmail.value, password: inputPassword.value })
+            .then(res => {
+                if (res?.user) {
+                    authService.setUserToLocalStorage(res.user)
+                    authService.redirectUser()
+                    toast.toastify("Success", "dark", 3000)
+                    return
+                }
+                toast.toastify(res.message, "error")
+            })
+            .catch(err => toast.toastify(err.message, "error", 4300))
     }
 })
 

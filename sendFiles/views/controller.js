@@ -1,5 +1,5 @@
 import path from "path"
-import fetch from "node-fetch"
+import fetch, { Headers } from "node-fetch"
 
 export const viewHomePage = async (_req, res) => {
     let url = new URL("http://localhost:4000/api/cars")
@@ -18,10 +18,18 @@ export const viewLogInvPage = (_req, res) => {
 }
 
 export const viewRentPage = async (_req, res) => {
-    const response = await fetch("http://localhost:4000/api/auth/getUser", { headers: { 'authorization': `Bearer ${_req.headers?.cookie.split("=")[1]}` } })
-    console.log(response);
+    let token = ""
+    if (_req.headers?.cookie) {
+        token = _req.headers?.cookie.split("=")[1]
+    }
+    const response = await fetch("http://localhost:4000/api/auth/getUser", { headers: new Headers({ 'authorization': `Bearer ${token}` }) })
+    let data = {}
 
-    res.render(path.resolve("RentCardemo/pages/rent"));
+    if (response.ok) {
+        data = await response.json(response => response) || {}
+    }
+
+    res.render(path.resolve("RentCardemo/pages/rent"), { user: data?.user ? { ...data.user } : {} });
 }
 
 export const viewContactPage = (_req, res) => {

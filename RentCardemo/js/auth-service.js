@@ -5,25 +5,27 @@ export class AuthSevice {
 
     async logIn(data) {
         data = JSON.stringify(data)
-        const response = await fetch("http://localhost:4000/api/auth/logIn", { method: "POST", body: data, headers: { 'content-type': 'application/json' }, credentials: "include"})
-        const {user, message} = await response.json(res => res)
+        const response = await fetch("http://localhost:4000/api/auth/logIn", { method: "POST", body: data, headers: { 'content-type': 'application/json' }, credentials: "include" })
+
+        return await response.json()
+    }
+
+    async getUser() {
+        const response = await fetch({ url: "http://localhost:4000/api/auth/getUser", credentials: "include" })
+        const { user, message } = response.json(res => res.user)
 
         console.log(message);
 
-        if(message) {
+        if (message) {
+            this.clearUserFromLocalStorage()
             return message
         }
 
-        this.setUserToLocalStorage(user)
-        location.href = "http://localhost:4000/rent"
         return user
     }
-    
-    async getUser() {
-        const response = await fetch({url:"http://localhost:4000/api/auth/getUser", credentials: "include"})
-        const user = response.json(res => res.user)
-    
-        return user
+
+    redirectUser() {
+        location.href = "http://localhost:4000/rent"
     }
 
     setUserToLocalStorage(user) {
@@ -32,5 +34,9 @@ export class AuthSevice {
 
     getUserFromLocalStorage() {
         return JSON.parse(localStorage.getItem("user"))
+    }
+
+    clearUserFromLocalStorage() {
+        localStorage.removeItem("user")
     }
 }

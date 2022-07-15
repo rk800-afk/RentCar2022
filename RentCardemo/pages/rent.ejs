@@ -16,30 +16,40 @@
 
             <%- include('../partials/sidebar'); %>
 
-                <main class="main_content">
-                    <section class="filter_section">
-                        <div class="main_container">
-                            <p class="filter_section_title">Каталог орендних авто у Львові</p>
+                <%= user.email %>
 
-                            <div class="filter_content">
-                                <button class="filter_btn active" title="all">Всі</button>
-                                <button class="filter_btn" title="econom">Эконом</button>
-                                <button class="filter_btn" title="average">Середній</button>
-                                <button class="filter_btn" title="4x4">Внедорожник</button>
-                                <button class="filter_btn" title="bisness">Бізнес</button>
-                                <button class="filter_btn" title="miniven">Мінівен</button>
-                                <button class="filter_btn" title="VIP">VIP
-                                    (преміум)</button>
+                    <main class="main_content">
+                        <section class="filter_section">
+                            <div class="main_container">
+                                <p class="filter_section_title">Каталог орендних авто у Львові</p>
+
+                                <div class="filter_content">
+                                    <button class="filter_btn active" title="all">Всі</button>
+                                    <button class="filter_btn" title="econom">Эконом</button>
+                                    <button class="filter_btn" title="average">Середній</button>
+                                    <button class="filter_btn" title="4x4">Внедорожник</button>
+                                    <button class="filter_btn" title="bisness">Бізнес</button>
+                                    <button class="filter_btn" title="miniven">Мінівен</button>
+                                    <button class="filter_btn" title="VIP">VIP
+                                        (преміум)</button>
+                                </div>
+
+                                <div class="admin_content">
+                                    <% if (user?.role==="ADMIN" ) { %>
+                                        <button type="button" class="admin_content_btn_add-car">
+                                            Add New Enriry (Car)
+                                        </button>
+                                        <% } %>
+                                </div>
+
+                                <div class="rent_car_container"></div>
+
+                                <h1 class="not_found_cars_text"></h1>
                             </div>
+                        </section>
+                    </main>
 
-                            <div class="rent_car_container"></div>
-
-                            <h1 class="not_found_cars_text"></h1>
-                        </div>
-                    </section>
-                </main>
-
-                <%- include('../partials/footer'); %>
+                    <%- include('../partials/footer'); %>
     </div>
 
     <script type="module" src="http://localhost:4000/js/auth-service.js"></script>

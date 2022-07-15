@@ -1,0 +1,28 @@
+.toast-modal_info {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -200%);
+  padding: 14px 15px;
+  opacity: 0;
+  background-color: white;
+  transition: transform 430ms, opacity 100ms;
+}
+
+.toast-modal_info.warning {
+  background-color: yellow;
+}
+
+.toast-modal_info.error {
+  background-color: rosybrown;
+}
+
+.toast-modal_info.dark {
+  background-color: black;
+}
+
+.toast-modal_info.active {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

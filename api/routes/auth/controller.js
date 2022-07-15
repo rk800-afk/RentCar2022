@@ -30,7 +30,7 @@ export const signUp = async (req, res) => {
             );
             res.status(201).send({ newUser: { _id, email, role }, token })
         } else {
-            res.json({ message: "User with this email exist!" })
+            res.status(400).send({ message: "User with this email exist!" })
         }
     } catch (error) {
         console.log(error?.message);
@@ -59,10 +59,10 @@ export const logIn = async (req, res) => {
                 res.setHeader('Set-Cookie', `authorization=${token}; HttpOnly; Path=/; Max-Age=${process.env.ACCESS_TOKEN_EXPIRES}}`)
                 res.send({ user: { _id, email, role }, token })
             } else {
-                res.json({ message: "User password not correct!" })
+                res.status(400).send({ message: "User password not correct!" })
             }
         } else {
-            res.json({ message: "User with this email not exist!" })
+            res.status(400).send({ message: "User with this email not exist!" })
         }
     } catch (error) {
         console.log(error?.message);
