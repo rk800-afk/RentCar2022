@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 import { createFilter } from "./filter.js";
 import { Car } from "../../../db/models/index.mjs";
 
@@ -6,7 +8,14 @@ import { Car } from "../../../db/models/index.mjs";
 
 export const createCar = async (req, res) => {
     try {
-        await Car.create({ ...req.body })
+        const car = await Car.create({ ...req.body })
+
+        if (car) {
+            const image = await fetch(`http://localhost:4000/api/image/${car._id}`, { method: "POST",  })
+            console.log(image);
+        }
+
+        res.send(201).send({ car })
     } catch (error) {
         console.log(error?.message);
     }

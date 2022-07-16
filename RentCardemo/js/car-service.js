@@ -1,6 +1,19 @@
 export class CarService {
   constructor() {
+    
+  }
+  #arrayCars = []
 
+  async createACar(data) {
+    data = JSON.stringify(data)
+    console.log(data);
+    const response = await fetch("http://localhost:4000/api/cars", { method: 'POST', body: data, credentials: 'include', headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }, })
+    console.log(await response.json(response => response));
+  
+    return await response.json()
   }
 
   async fetchCars(params) {

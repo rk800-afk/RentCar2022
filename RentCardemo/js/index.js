@@ -6,16 +6,14 @@ const toast = new Toast()
 
 authService.getUser()
   .then(res => {
-    const { user, message } = res
-    if (message) {
-      authService.clearUserFromLocalStorage()
-      toast.toastify(message, "dark", 3000)
-      return
-    }
+    const { user } = res
     authService.setUserToLocalStorage(user)
     toast.toastify(`You Log In ${user.role}`, "success", 3000)
   })
-  .catch(err => toast.toastify("Unhorized", "dark", 3000))
+  .catch(err =>{ 
+    authService.clearUserFromLocalStorage()
+    toast.toastify("Unhorized", "dark", 3000)
+})
 
 const navBar = document.getElementById("header");
 const list = document.querySelectorAll("#mp_nav_li_dropdown");

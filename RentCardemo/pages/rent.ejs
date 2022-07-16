@@ -23,48 +23,60 @@
                         <div class="modal_dimmer"></div>
 
                         <div class="modal_content">
-                            <div class="modal_header">
-                                <h4 class="modal_content_title">EdiT TITLE</h4>
-                                <button type="button" class="modal_content_btn_close">
-                                    <h3>X</h3>
-                                </button>
-                            </div>
-                            <form class="modal_form">
-                                <div class="modal_form-inputs">
-                                    <div class="modal_form-inputs-flex">
-                                        <div class="cont-inp">
-                                            <input class="modal_input" type="text" id="modal_form-title"
-                                                placeholder="Input title">
-                                        </div>
-                                        <div class="cont-inp">
-                                            <input class="modal_input" type="text" id="modal_form-brand"
-                                                placeholder="Input brand">
-                                        </div>
-                                    </div>
-                                    <input type="file" id="modal_form-image">
-                                    <div class="modal_form-inputs-flex">
-                                        <div class="cont-inp">
-                                            <input class="modal_input" type="text" id="modal_form-price"
-                                                placeholder="Input price">
-                                        </div>
-                                        <div class="cont-inp">
-                                            <input class="modal_input" type="text" id="modal_form-price"
-                                                placeholder="Input price">
-                                        </div>
-                                        <div class="cont-inp">
-                                            <input class="modal_input" type="text" id="modal_form-price"
-                                                placeholder="Input price">
-                                        </div>
-                                        <div class="cont-inp">
-                                            <input class="modal_input" type="text" id="modal_form-price"
-                                                placeholder="Input price">
-                                        </div>
-                                    </div>
+                                <div class="modal_header">
+                                    <h4 class="modal_content_title">EdiT TITLE</h4>
+                                    <button type="button" class="modal_content_btn_close">
+                                        <h3>X</h3>
+                                    </button>
                                 </div>
-
-                                <button>Submit</button>
-                            </form>
-                        </div>
+                               <div class="form_wrapper">
+                                <form class="modal_form">
+                                    <div class="preview-image_file-content">
+                                        <div class="flex">
+                                            <input type="file" id="modal_form-image" accept="image/*" required>
+                                            <div class="content_image_preview_close">x</div>
+                                        </div>
+                                        <div class="render-image"></div>
+                                    </div>
+                                   
+                                    <div class="modal_form-inputs">
+                                        <div class="modal_form-inputs-flex">
+                                            <div class="cont-inp">
+                                                <input class="modal_input" type="text" id="modal_form-title"
+                                                    placeholder="Input title">
+                                            </div>
+                                            <div class="cont-inp">
+                                                <input class="modal_input" type="text" id="modal_form-brand"
+                                                    placeholder="Input brand">
+                                            </div>
+                                        </div>
+                                        <div class="modal_form-inputs-flex">
+                                            <div class="cont-inp">
+                                                <input class="modal_input" type="text" id="modal_form-price1"
+                                                    placeholder="Input first price">
+                                            </div>
+                                            <div class="cont-inp">
+                                                <input class="modal_input" type="text" id="modal_form-price2"
+                                                    placeholder="Input second price">
+                                            </div>
+                                            <div class="cont-inp">
+                                                <input class="modal_input" type="text" id="modal_form-price3"
+                                                    placeholder="Input third price">
+                                            </div>
+                                            <div class="cont-inp">
+                                                <input class="modal_input" type="text" id="modal_form-price4"
+                                                    placeholder="Input four price">
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </form>
+                               </div>
+                              
+                               <div class="flex">
+                                <button id="btn_submit" type="button">Submit</button>
+                               </div>
+                            </div>
                     </div>
 
                     <main class="main_content">

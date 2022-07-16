@@ -1,5 +1,5 @@
-const USER = 'User';
-const ADMIN = 'Admin';
+const USER = 'USER';
+const ADMIN = 'ADMIN';
 
 export {
   USER,

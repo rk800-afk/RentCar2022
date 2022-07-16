@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import parseCookies from "../utils/getCookies"
+import parseCookies from "../utils/getCookies.js"
 
 const JWTAuthPremission = (req, res, next) => {
     const authToken = parseCookies(req)?.authorization || null
