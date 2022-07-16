@@ -4,6 +4,44 @@ import { Car } from "../../../db/models/index.mjs";
 // V8 JS => NODEJS 01001010101
 // LIBUV => CROSS-PLATFORM, NON BLOCKING I/O, EVENT LOOP
 
+export const createCar = async (req, res) => {
+    try {
+        await Car.create({ ...req.body })
+    } catch (error) {
+        console.log(error?.message);
+    }
+}
+
+export const updateCar = async (req, res) => {
+    try {
+        const carId = req.param.carId
+        if (!carId) {
+            res.send(400).send({ message: "You must set carId" })
+        }
+        await Car.updateOne(req.body, { _id: carId }, {}, (err, res) => {
+            if (err) {
+                res.send(400).send({ message: err })
+                return
+            }
+            res.send(200).send({ message: `Updated by carId ${carID}` })
+        })
+    } catch (error) {
+        console.log(error?.message);
+    }
+}
+
+export const deleteCar = async (req, res) => {
+    try {
+        const carId = req.param.carId
+        if (!carId) {
+            res.send(400).send({ message: "You must set carId" })
+        }
+        await Car.deleteOne({ $where: { _id: carId } })
+    } catch (error) {
+        console.log(error?.message);
+    }
+}
+
 export const getCars = async (req, res) => {
     try {
         const filter = createFilter(req)
@@ -17,4 +55,4 @@ export const getCars = async (req, res) => {
     } catch (error) {
         console.log(error?.message);
     }
-};
+}

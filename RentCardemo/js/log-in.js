@@ -48,7 +48,7 @@ logInForm.addEventListener("submit", async (e) => {
                 }
                 toast.toastify(res.message, "error")
             })
-            .catch(err => toast.toastify(err.message, "error", 4300))
+            .catch(err => toast.toastify(err.message, "error", 3000))
     }
 })
 

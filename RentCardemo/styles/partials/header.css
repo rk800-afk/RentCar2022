@@ -158,3 +158,22 @@ header {
   border-color: var(--text-hover-color);
   color: var(--text-hover-color);
 }
+
+.btn_logout {
+  border-radius: 8px;
+  color: black;
+  background-color: white;
+  padding: 8px 15px;
+  margin-left: 8px;
+  transition: all 0.38s;
+}
+
+.btn_logout:hover {
+  color: white;
+  background-color: black;
+  outline: 1px solid white;
+}
+
+.btn_logout.none {
+  display: none;
+}

@@ -1,9 +1,8 @@
-import path from 'path';
+import path from 'path';s
 
 const config = {
   mongodb: {
     databaseName: process.env.MONGO_DB,
-    url: process.env.MONGO_URL,
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true

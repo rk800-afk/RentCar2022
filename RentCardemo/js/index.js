@@ -5,6 +5,17 @@ import { Toast } from "./toast.js";
 const toast = new Toast()
 
 authService.getUser()
+  .then(res => {
+    const { user, message } = res
+    if (message) {
+      authService.clearUserFromLocalStorage()
+      toast.toastify(message, "dark", 3000)
+      return
+    }
+    authService.setUserToLocalStorage(user)
+    toast.toastify(`You Log In ${user.role}`, "success", 3000)
+  })
+  .catch(err => toast.toastify("Unhorized", "dark", 3000))
 
 const navBar = document.getElementById("header");
 const list = document.querySelectorAll("#mp_nav_li_dropdown");
@@ -15,6 +26,11 @@ const svg = document.getElementById("hamburger");
 const hamburger_navbar = document.querySelectorAll(".hamburger_navbar")[0]
 const side_bar_overlay = document.querySelectorAll(".side_bar_overlay")[0]
 const btnLogOut = document.querySelectorAll(".btn_logout")[0]
+
+if (!authService.getUserFromLocalStorage()) {
+  btnLogOut.classList.add("none")
+}
+
 let sideBarOpened = false;
 const pathname = window.location.pathname;
 if (
@@ -55,7 +71,15 @@ if (
 hamburger_navbar.addEventListener("click", openCloseSideBar)
 side_bar_overlay.addEventListener("click", openCloseSideBar)
 btnLogOut.addEventListener("click", async (e) => {
-    await authService.logoutUser().then(res => toast.toastify(res?.message, "dark", 3400))
+  await authService.logoutUser().then(res => {
+    if (!res?.message) {
+      toast.toastify("You Logout", "success")
+      location.reload()
+      return
+    }
+    toast.toastify(res.message, "dark")
+  })
+    .catch(err => toast.toastify(err?.message, "dark"))
 })
 
 function openCloseSideBar() {

@@ -5,7 +5,7 @@ export class Toast {
     toastify(message = "", type = "default", deley = 3000) {
         const containerToasts = document.querySelectorAll(".toast_container")[0]
 
-        if(containerToasts.children.length === 4) return
+        if (containerToasts.children.length === 4) return
 
         const toast = document.createElement("div")
         toast.classList.add("toast-modal_info")
@@ -34,7 +34,6 @@ export class Toast {
         p_text_infos.innerText = message
         toast.appendChild(p_text_infos)
 
-        
         setTimeout(() => {
             toast.classList.add("active")
         }, 0)
@@ -42,7 +41,7 @@ export class Toast {
         //Off Toast
         setTimeout(() => {
             toast.classList.remove("active")
-           setTimeout(() => {
+            setTimeout(() => {
                 toast.remove()
             }, 0)
         }, deley)

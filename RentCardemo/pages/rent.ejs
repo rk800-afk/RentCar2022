@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost:4000/css/pages/rent.css">
+    <link rel="stylesheet" href="http://localhost:4000/css/partials/toast.css">
     <%- include('../head/defaultHead'); %>
 </head>
 
@@ -16,7 +17,55 @@
 
             <%- include('../partials/sidebar'); %>
 
-                <%= user.email %>
+                <%- include('../partials/toast.ejs'); %>
+
+                    <div class="modal">
+                        <div class="modal_dimmer"></div>
+
+                        <div class="modal_content">
+                            <div class="modal_header">
+                                <h4 class="modal_content_title">EdiT TITLE</h4>
+                                <button type="button" class="modal_content_btn_close">
+                                    <h3>X</h3>
+                                </button>
+                            </div>
+                            <form class="modal_form">
+                                <div class="modal_form-inputs">
+                                    <div class="modal_form-inputs-flex">
+                                        <div class="cont-inp">
+                                            <input class="modal_input" type="text" id="modal_form-title"
+                                                placeholder="Input title">
+                                        </div>
+                                        <div class="cont-inp">
+                                            <input class="modal_input" type="text" id="modal_form-brand"
+                                                placeholder="Input brand">
+                                        </div>
+                                    </div>
+                                    <input type="file" id="modal_form-image">
+                                    <div class="modal_form-inputs-flex">
+                                        <div class="cont-inp">
+                                            <input class="modal_input" type="text" id="modal_form-price"
+                                                placeholder="Input price">
+                                        </div>
+                                        <div class="cont-inp">
+                                            <input class="modal_input" type="text" id="modal_form-price"
+                                                placeholder="Input price">
+                                        </div>
+                                        <div class="cont-inp">
+                                            <input class="modal_input" type="text" id="modal_form-price"
+                                                placeholder="Input price">
+                                        </div>
+                                        <div class="cont-inp">
+                                            <input class="modal_input" type="text" id="modal_form-price"
+                                                placeholder="Input price">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button>Submit</button>
+                            </form>
+                        </div>
+                    </div>
 
                     <main class="main_content">
                         <section class="filter_section">
@@ -34,18 +83,20 @@
                                         (преміум)</button>
                                 </div>
 
-                                <div class="admin_content">
-                                    <% if (user?.role==="ADMIN" ) { %>
-                                        <h3><%= user.email %></h3>
+                                <% if (user?.role==="ADMIN" ) { %>
+                                    <div class="admin_content">
+                                        <h3>
+                                            <%= user.email %>
+                                        </h3>
                                         <button type="button" class="admin_content_btn_add-car">
                                             Add New Enriry (Car)
                                         </button>
-                                        <% } %>
-                                </div>
+                                    </div>
+                                    <% } %>
 
-                                <div class="rent_car_container"></div>
+                                        <div class="rent_car_container"></div>
 
-                                <h1 class="not_found_cars_text"></h1>
+                                        <h1 class="not_found_cars_text"></h1>
                             </div>
                         </section>
                     </main>

@@ -1,1 +1,5 @@
+export { default as isAdminPremission } from './isAdminPremission.js'
 export { default as JWTAuthPremission } from './passport.js'
+export { default as setUserToReq } from './set-user-to-req.js'
+export { default as privateRoute } from './private-route.js'
+export { default as redirectRoute } from './redirect-route.js'
