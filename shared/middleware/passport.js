@@ -10,12 +10,6 @@ const cookieExtractor = function (req) {
   return token;
 };
 
-const cookieExtractor = function(req) {
-  let token = null;
-  if (req && req.cookies) token = req.cookies['authorization'];
-  return token;
-};
-
 // Configuration for jwt-strategy in 'passport'
 const options = {
   jwtFromRequest: cookieExtractor,
