@@ -32,53 +32,55 @@
                                         <h3>X</h3>
                                     </button>
                                 </div>
-                            </div>
-                            <div class="form_wrapper">
-                                <form class="modal_form">
-                                    <div class="preview-image_file-content">
-                                        <div class="flex">
-                                            <input type="file" id="modal_form-image" accept="image/*" required>
-                                            <div class="content_image_preview_close">x</div>
+                                <div class="form_wrapper">
+                                    <form id="modal_form_id" class="modal_form">
+                                        <div class="preview-image_file-content">
+                                            <div class="flex">
+                                                <input type="file" id="modal_form-image" class="form_image_choose"
+                                                    accept="image/*" required>
+                                                <div class="content_image_preview_close admin_btn">x</div>
+                                            </div>
+                                            <div class="render-image"></div>
                                         </div>
-                                        <div class="render-image"></div>
-                                    </div>
 
-                                    <div class="modal_form-inputs">
-                                        <div class="modal_form-inputs-flex">
-                                            <div class="cont-inp">
-                                                <input class="modal_input" type="text" id="modal_form-title"
-                                                    placeholder="Input title">
+                                        <div class="modal_form-inputs">
+                                            <div class="modal_form-inputs-flex">
+                                                <div class="cont-inp">
+                                                    <input class="modal_input" type="text" id="modal_form-title"
+                                                        placeholder="Input title">
+                                                </div>
+                                                <div class="cont-inp">
+                                                    <input class="modal_input" type="text" id="modal_form-brand"
+                                                        placeholder="Input brand">
+                                                </div>
                                             </div>
-                                            <div class="cont-inp">
-                                                <input class="modal_input" type="text" id="modal_form-brand"
-                                                    placeholder="Input brand">
+                                            <div class="modal_form-inputs-flex">
+                                                <div class="cont-inp">
+                                                    <input class="modal_input" type="text" id="modal_form-price1"
+                                                        placeholder="Input first price">
+                                                </div>
+                                                <div class="cont-inp">
+                                                    <input class="modal_input" type="text" id="modal_form-price2"
+                                                        placeholder="Input second price">
+                                                </div>
+                                                <div class="cont-inp">
+                                                    <input class="modal_input" type="text" id="modal_form-price3"
+                                                        placeholder="Input third price">
+                                                </div>
+                                                <div class="cont-inp">
+                                                    <input class="modal_input" type="text" id="modal_form-price4"
+                                                        placeholder="Input four price">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="modal_form-inputs-flex">
-                                            <div class="cont-inp">
-                                                <input class="modal_input" type="text" id="modal_form-price1"
-                                                    placeholder="Input first price">
-                                            </div>
-                                            <div class="cont-inp">
-                                                <input class="modal_input" type="text" id="modal_form-price2"
-                                                    placeholder="Input second price">
-                                            </div>
-                                            <div class="cont-inp">
-                                                <input class="modal_input" type="text" id="modal_form-price3"
-                                                    placeholder="Input third price">
-                                            </div>
-                                            <div class="cont-inp">
-                                                <input class="modal_input" type="text" id="modal_form-price4"
-                                                    placeholder="Input four price">
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </form>
-                            </div>
+                                    </form>
+                                </div>
 
-                            <div class="flex">
-                                <button id="btn_submit" type="button">Submit</button>
+                                <div class="flex">
+                                    <button id="btn_clear" class="admin_btn" type="button">Clear</button>
+                                    <button id="btn_submit" class="admin_btn" type="button">Submit</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -104,32 +106,36 @@
                                         <h3>
                                             <%= user.email %>
                                         </h3>
-
-                                        <div>
+                                        <<<<<<< HEAD <div>
                                             <button type="button" class="admin_content_btn_add-car edit">
                                                 Edit a Enity (Car)
                                             </button>
                                             <button type="button" class="admin_content_btn_add-car create">
                                                 Add New Enriry (Car)
                                             </button>
-                                        </div>
                                     </div>
-                                    <% } %>
-
-                                        <div class="rent_car_container"></div>
-
-                                        <h1 class="not_found_cars_text"></h1>
+                                    =======
+                                    <button type="button" class="admin_content_btn_add-car admin_btn">
+                                        Add New Enriry (Car)
+                                    </button>
+                                    >>>>>>> cfa4ba949e3154caeb9b7444f0178058de986c08
                             </div>
-                        </section>
-                    </main>
+                            <% } %>
 
-                    <%- include('../partials/footer'); %>
+                                <div class="rent_car_container"></div>
+
+                                <h1 class="not_found_cars_text"></h1>
     </div>
+    </section>
+    </main>
 
-    <script type="module" src="http://localhost:4000/js/auth-service.js"></script>
-    <script type="module" src="http://localhost:4000/js/car-service.js"></script>
-    <script type="module" src="http://localhost:4000/js/index.js"></script>
-    <script type="module" src="http://localhost:4000/js/rent.js"></script>
+    <%- include('../partials/footer'); %>
+        </div>
+
+        <script type="module" src="http://localhost:4000/js/auth-service.js"></script>
+        <script type="module" src="http://localhost:4000/js/car-service.js"></script>
+        <script type="module" src="http://localhost:4000/js/index.js"></script>
+        <script type="module" src="http://localhost:4000/js/rent.js"></script>
 </body>
 
 </html>

@@ -23,7 +23,7 @@
 
 .modal_content {
   max-width: 800px;
-  max-height: 400px;
+  max-height: 420px;
   width: 100%;
   height: 100%;
   overflow-y: hidden;
@@ -53,11 +53,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px 0;
 }
 
-.content_image_preview_close {
+.content_image_preview_close {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   font-size: 24px;
+  width: 40px!important;
+  height: 40px!important;
+  padding: 0!important;
+  margin-left: 20px;
+  transition: color 340ms, background 340ms, outline 250ms;
 }
 
 .file-image {
@@ -67,20 +76,23 @@
   object-fit: contain;
 }
 
-#btn_submit {
-  border-radius: 8px;
-  color: white;
-  background-color: black;
-  padding: 8px 15px;
-  margin-top: 20px;
-  transition: all 0.38s;
+.form_image_choose{
+  max-width: 300px;
+  width: 100%;
 }
 
-#btn_submit:hover {
+input.form_image_choose::-webkit-file-upload-button{
+  color: white;
+  background-color: black;
+  padding: 10px 20px;
+  margin-right: 20px;
+  transition: color 340ms, background 340ms, outline 250ms;
+}
+
+input.form_image_choose::-webkit-file-upload-button:hover{
   color: black;
   background-color: white;
-  cursor: pointer;
-  outline: 1px solid white;
+  outline: 2px solid black;
 }
 
 .modal_form {
@@ -89,7 +101,7 @@
   justify-content: space-between;
   /* overflow-y: scroll; */
   row-gap: 43px;
-  margin-top: 43px;
+  margin-top: 23px;
   padding: 0 10%;
 }
 
@@ -97,6 +109,10 @@
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+}
+
+#btn_clear{
+  margin-right: 30px;
 }
 
 .main_container {
@@ -168,11 +184,18 @@
   margin-bottom: 34px;
 }
 
-.admin_content_btn_add-car {
-  outline: 1px solid black;
-  background-color: var(--background-color);
-  padding: 15px;
+.admin_btn {
+  color: white;
+  background-color: black;
+  padding: 15px 50px;
+  transition: color 340ms, background 340ms, outline 250ms;
   /* margin-bottom: 34px; */
+}
+
+.admin_btn:hover {
+  color: black;
+  background-color: white;
+  outline: 2px solid black;
 }
 
 .filter_section {

@@ -146,6 +146,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
+  document.querySelectorAll("#btn_clear")[0].addEventListener("click", async (e) => {
+    // e.preventDefault()
+    try {
+      form.reset()
+      valid(inputTitle)
+      valid(inputBrand)
+      valid(inputFirstPrice)
+      valid(inputSecondPrice)
+      valid(inputThirdPrice)
+      valid(inputFourthPrice)
+      previewFileImageContent[0].removeChild(image)
+    }
+    catch {
+      console.log("Форма пуста!")
+    }
+
+  })
+
   inputFile.addEventListener("change", (e) => {
     if (inputFile.files[0]) {
       const [file] = inputFile.files

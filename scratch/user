@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"user":{"_id":"62d0152b8f18db9f3b291b16","email":"ch.vova8383@gmail.com","role":"ADMIN"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQwMTUyYjhmMThkYjlmM2IyOTFiMTYiLCJlbWFpbCI6ImNoLnZvdmE4MzgzQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1ODA2NDQ2OSwiZXhwIjoxNjU4MDcyODEyfQ.jLZYda8Oa8mUu0fM-fghQ1_LDb1md-TJAieH9LO0FbI"}
+=======
+{"user":{"_id":"62cf3425edc82e8d04ea9f83","email":"ch.vova8383@gmail.com","role":"ADMIN"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNmMzQyNWVkYzgyZThkMDRlYTlmODMiLCJlbWFpbCI6ImNoLnZvdmE4MzgzQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1ODA2NTM0OSwiZXhwIjoxNjU4MDczNjkyfQ.7Xe6QdrXt-d_DcadATbENVu_0698yofMqIILCVjfFOo"}
+>>>>>>> cfa4ba949e3154caeb9b7444f0178058de986c08
