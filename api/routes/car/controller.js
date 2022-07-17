@@ -9,13 +9,7 @@ import { Car } from "../../../db/models/index.mjs";
 export const createCar = async (req, res) => {
     try {
         const car = await Car.create({ ...req.body })
-
-        if (car) {
-            const image = await fetch(`http://localhost:4000/api/image/${car._id}`, { method: "POST",  })
-            console.log(image);
-        }
-
-        res.send(201).send({ car })
+        res.status(201).send({ car })
     } catch (error) {
         console.log(error?.message);
     }
@@ -23,17 +17,13 @@ export const createCar = async (req, res) => {
 
 export const updateCar = async (req, res) => {
     try {
-        const carId = req.param.carId
+        const carId = req.params.carId
         if (!carId) {
             res.send(400).send({ message: "You must set carId" })
         }
-        await Car.updateOne(req.body, { _id: carId }, {}, (err, res) => {
-            if (err) {
-                res.send(400).send({ message: err })
-                return
-            }
-            res.send(200).send({ message: `Updated by carId ${carID}` })
-        })
+        await Car.updateOne({ _id: carId }, { $set: { ...req.body } })
+        const car = await getCarById(req, res)
+        res.status(200).send({ car })
     } catch (error) {
         console.log(error?.message);
     }
@@ -41,11 +31,24 @@ export const updateCar = async (req, res) => {
 
 export const deleteCar = async (req, res) => {
     try {
-        const carId = req.param.carId
+        const carId = req.params.carId
         if (!carId) {
-            res.send(400).send({ message: "You must set carId" })
+            res.status(400).send({ message: "You must set carId" })
         }
         await Car.deleteOne({ $where: { _id: carId } })
+        res.send(200).send({ deletedCarById: carId })
+    } catch (error) {
+        console.log(error?.message);
+    }
+}
+
+export const getCarById = async (req, res) => {
+    try {
+        const fetchCar = await Car.findById(req.params.carId)
+        if (!fetchCar) {
+            res.status(404).json({ message: "Not Found Car(s)" })
+        }
+        res.status(200).send({ car: fetchCar })
     } catch (error) {
         console.log(error?.message);
     }

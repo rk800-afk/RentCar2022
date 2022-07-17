@@ -23,13 +23,17 @@
                         <div class="modal_dimmer"></div>
 
                         <div class="modal_content">
-                                <div class="modal_header">
-                                    <h4 class="modal_content_title">EdiT TITLE</h4>
+                            <div class="modal_header">
+                                <h4 class="modal_content_title">EdiT TITLE</h4>
+                                <div>
+                                    <input type="text" class="update_search" id="update_search"
+                                        placeholder="Search Car By Id">
                                     <button type="button" class="modal_content_btn_close">
                                         <h3>X</h3>
                                     </button>
                                 </div>
-                               <div class="form_wrapper">
+                            </div>
+                            <div class="form_wrapper">
                                 <form class="modal_form">
                                     <div class="preview-image_file-content">
                                         <div class="flex">
@@ -38,7 +42,7 @@
                                         </div>
                                         <div class="render-image"></div>
                                     </div>
-                                   
+
                                     <div class="modal_form-inputs">
                                         <div class="modal_form-inputs-flex">
                                             <div class="cont-inp">
@@ -69,14 +73,14 @@
                                             </div>
                                         </div>
                                     </div>
-    
+
                                 </form>
-                               </div>
-                              
-                               <div class="flex">
-                                <button id="btn_submit" type="button">Submit</button>
-                               </div>
                             </div>
+
+                            <div class="flex">
+                                <button id="btn_submit" type="button">Submit</button>
+                            </div>
+                        </div>
                     </div>
 
                     <main class="main_content">
@@ -100,9 +104,15 @@
                                         <h3>
                                             <%= user.email %>
                                         </h3>
-                                        <button type="button" class="admin_content_btn_add-car">
-                                            Add New Enriry (Car)
-                                        </button>
+
+                                        <div>
+                                            <button type="button" class="admin_content_btn_add-car edit">
+                                                Edit a Enity (Car)
+                                            </button>
+                                            <button type="button" class="admin_content_btn_add-car create">
+                                                Add New Enriry (Car)
+                                            </button>
+                                        </div>
                                     </div>
                                     <% } %>
 

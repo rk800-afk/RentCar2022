@@ -49,7 +49,7 @@
   height: 38vh;
 }
 
-.flex{
+.flex {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,6 +116,10 @@
   outline: none;
   background-color: var(--background-color);
   transition: transform 340ms, outline 250ms;
+}
+
+.none {
+  display: none;
 }
 
 .content_file_preview_image {
@@ -215,6 +219,7 @@
 }
 
 .rent_card {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -223,6 +228,28 @@
   background-color: var(--background-color);
   border-radius: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.rent_card_admin_panel {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.btn_icon .icon {
+  /* padding: 8px; */
+  transition: all 0.38s;
+}
+
+.btn_icon:hover .icon {
+  color: white;
+  /* background-color: aliceblue; */
+  stroke: wheat;
+  stroke-width: 22px;
 }
 
 .show {

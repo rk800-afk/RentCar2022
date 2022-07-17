@@ -1,18 +1,99 @@
+import { AuthSevice } from "./auth-service.js"
+const auth = new AuthSevice()
 export class CarService {
   constructor() {
-    
+
   }
   #arrayCars = []
 
-  async createACar(data) {
+  async createACar(data, imageFile) {
     data = JSON.stringify(data)
-    console.log(data);
-    const response = await fetch("http://localhost:4000/api/cars", { method: 'POST', body: data, credentials: 'include', headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }, })
-    console.log(await response.json(response => response));
-  
+    const response = await fetch("http://localhost:4000/api/cars", {
+      method: 'POST', body: data, credentials: 'include', headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+
+    return response.json()
+      .then(async (res) => {
+        if (imageFile) {
+          this.createImageForCar(res.car._id, imageFile)
+            .then(resImage => {
+              const { cars } = resImage
+              this.#arrayCars.push(cars)
+              this.renderCars()
+            })
+            .catch(err => console.log(err))
+        } else {
+          const { car } = res
+          this.#arrayCars.push(car)
+          this.renderCars()
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  async updateCarById(carId, data, imageFile) {
+    data = JSON.stringify(data)
+    const response = await fetch(`http://localhost:4000/api/cars/${carId}`, {
+      method: 'PATCH', body: data, credentials: 'include', headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+
+    return response.json()
+      .then(async (res) => {
+        if (imageFile) {
+          this.createImageForCar(res.car._id, imageFile)
+            .then(resImage => {
+              const { cars } = resImage
+              this.#arrayCars = this.#arrayCars.map(itemCar => itemCar._id === cars._id ? cars : itemCar)
+              this.renderCars()
+            })
+            .catch(err => console.log(err))
+        } else {
+          const { car } = res
+          this.#arrayCars = this.#arrayCars.map(itemCar => itemCar._id === car._id ? car : itemCar)
+          this.renderCars()
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  async deleteACarById(carId) {
+    const response = await fetch(`http://localhost:4000/api/cars/${carId}`,
+      {
+        method: 'DELETE', credentials: 'include'
+      })
+
+    return response.json()
+      .then((res) => {
+        const { deletedCarById } = res
+        this.#arrayCars = this.#arrayCars.filter(car => car._id !== deletedCarById)
+        this.renderCars()
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  async createImageForCar(carId, imageFile) {
+    const formData = new FormData()
+    formData.append("file", imageFile)
+    const response = await fetch(`http://localhost:4000/api/image/${carId}`, {
+      method: "POST", body: formData,
+    })
+    return await response.json()
+  }
+
+  async fetchCarById(carId) {
+    const response = await fetch(`http://localhost:4000/api/cars/${carId}`)
     return await response.json()
   }
 
@@ -33,24 +114,28 @@ export class CarService {
 
     if (typeof data === "string") {
       notFound.innerHTML = `<p align="center">"Not Found Car's"</p>`
-      this.renderCars([])
+      this.#arrayCars = []
+      this.renderCars()
       return
     }
 
-    this.renderCars(data)
+    this.#arrayCars = JSON.parse(JSON.stringify(data))
+
+    this.renderCars()
   }
 
-  renderCars(array) {
+  renderCars() {
     let containerCard = document.getElementsByClassName("rent_car_container");
     let isImage = '';
     let str = ``;
 
-    array.map(({ title, image, price }) => {
-      isImage = image?.filename !== '...' && image?.filename ? image?.filename : 'http://localhost:4000/local/images/fa9e27a7534060df383ab54354fcead3_w200.gif'
+    this.#arrayCars.map(({ _id, title, image, price }) => {
+      isImage = image?.filename && image?.filename !== '...' ? image?.filename : 'http://localhost:4000/local/images/fa9e27a7534060df383ab54354fcead3_w200.gif'
 
       return str += `<div class="rent_card">
       <div class="rent_card_title_image">
-        <p>${title}</p>
+        <p align="center">${title}</p>
+        ${auth.getUserFromLocalStorage() ? `<span>${_id}</span>` : ``}
       </div>
       <img class="rent_card_image" src=${isImage} width="220" height="120" alt="Smille">
       <div class="rent_content_list">
@@ -97,3 +182,13 @@ export class CarService {
     return (containerCard[0].innerHTML = str);
   }
 }
+
+{/* <div class="rent_card_admin_panel">
+        ${auth.getUserFromLocalStorage() ?
+          `<button class="btn_icon edit" title=${_id} onclick="openUpdateModalCar(this, ${_id})"> 
+          <img class="icon" src="http://localhost:4000/local/images/edit-button-svgrepo-com.svg" width="25" height="25" alt="Edit">
+        </button>
+        <button class="btn_icon delete" title=${_id} onclick="deleteModalCar(this, ${_id})">
+          <img class="icon" src="http://localhost:4000/local/images/close-svgrepo-com.svg" width="22" height="22" alt="Delete"> 
+        </button>` : ``}
+      </div> */}
