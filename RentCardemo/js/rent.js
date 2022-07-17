@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const classModal = document.querySelectorAll(".modal")[0]
   const classModalDimmer = document.querySelectorAll(".modal_dimmer")[0]
   const classAdminBtnModal = document.querySelectorAll(".admin_content_btn_add,.create")[0]
-  const classModalEdit = document.querySelectorAll(".admin_content_btn_add-car,.edit")[0]
+  // const classModalEdit = document.querySelectorAll(".admin_content_btn_add-car,.edit228")[0]
+  const classModalEdit = document.getElementById("admin-edit-btn")
+  const classModalDelete = document.querySelectorAll(".admin_content_btn_add-car,.delete")[0]
   const classModalBtnClose = document.querySelectorAll(".modal_content_btn_close")[0]
 
   const previewFileImageContent = document.querySelectorAll(".render-image")
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  const typeModal = { createCar: "CREATE", editCar: "EDIT" }
+  const typeModal = { createCar: "CREATE", editCar: "EDIT", deleteCar: "DELETE" }
   let currentTypeModal = ""
   const image = document.createElement("img")
   const updateFetchCars = []
@@ -65,12 +67,21 @@ document.addEventListener("DOMContentLoaded", () => {
       classModal.classList.add("active")
     })
 
+    classModalDelete.addEventListener("click", () => {
+      modal_content_title.innerHTML = "Modal Delete A Car"
+      currentTypeModal = typeModal.deleteCar
+      update_search.classList.remove("none")
+      classModal.classList.add("active")
+    })
+
     classModalBtnClose.addEventListener("click", () => {
       classModal.classList.remove("active")
+      clearData()
     })
 
     classModalDimmer.addEventListener("click", () => {
       classModal.classList.remove("active")
+      clearData()
     })
 
     update_search.addEventListener("input", (e) => {
@@ -143,6 +154,16 @@ document.addEventListener("DOMContentLoaded", () => {
             toast.toastify(error)
           })
       }
+      else if (currentTypeModal === typeModal.deleteCar) {
+        carService.deleteACarById(document.getElementById("update_search").value)
+          .then(response => {
+            toast.toastify("Deleted")
+          })
+          .catch(error => {
+            toast.toastify(error)
+          })
+          clearData()
+      }
     }
   })
 
@@ -150,12 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // e.preventDefault()
     try {
       form.reset()
-      valid(inputTitle)
-      valid(inputBrand)
-      valid(inputFirstPrice)
-      valid(inputSecondPrice)
-      valid(inputThirdPrice)
-      valid(inputFourthPrice)
+      update_search.value = ""
+      doValid()
       previewFileImageContent[0].removeChild(image)
     }
     catch {
@@ -163,6 +180,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
   })
+
+  function doValid(){
+    valid(inputTitle)
+    valid(inputBrand)
+    valid(inputFirstPrice)
+    valid(inputSecondPrice)
+    valid(inputThirdPrice)
+    valid(inputFourthPrice)
+  }
+
+  function clearData(){
+    doValid()
+    form.reset()
+    update_search.value = ""
+    if(previewFileImageContent[0].children.length != 0 )
+    {
+      previewFileImageContent[0].removeChild(image)
+    }
+  }
 
   inputFile.addEventListener("change", (e) => {
     if (inputFile.files[0]) {

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost:4000/css/pages/reserv.css">
+    <link rel="stylesheet" href="http://localhost:4000/css/partials/car-card.css">
     <%- include('../head/defaultHead'); %>
 </head>
 
@@ -15,30 +16,48 @@
         <%- include('../partials/navbar'); %>
 
             <%- include('../partials/sidebar'); %>
+            <%- include('../partials/toast.ejs'); %>
+
 
                 <main class="main_content">
                     <section class="hero_section">
+                        <h1 class="reserv_title">Резервація автомобіля</h1>
                         <div class="main_container">
-                            <form class="grid_content">
-                                <div class="rent_card">
-                                    <img class="rent_card_image" src="/images/00a4a39c.png" alt="00a4a39c">
-                                    <p class="rent_card_tilte">Toyota RAV4 Hybrid</p>
-                                    <p class="rent_card_prices">Вартість оренди: <span class="rent_price">$</span><span
-                                            class="rent_price">69</span></p>
-                                    <ul class="rent_card_option">
-                                        <li>Кількість діб: <span>1</span></li>
-                                    </ul>
+                            <div class="card_section">
+                                <%- include('../partials/car-card', { car, type: { label: "reserv" } }); %>
+                            </div>
+                            <div class="form_section">
+                                <form id="form" class="form">
+                                    <!-- <p class="input_label">Ім'я:</p> -->
+                                    <div class="user-info_input">
+                                        <input class="input_content" type="text" name="name" id="name" placeholder="Введіть ваше ім'я">
+                                    </div>
+                                    <!-- <p class="input_label">Прізвище:</p> -->
+                                    <div class="user-info_input">
+                                        <input class="input_content" type="text" name="lastName" id="lastName" placeholder="Введіть ваше прізвище">
+                                    </div>
+                                    <!-- <p class="input_label">Емейл:</p> -->
+                                    <div class="user-info_input">
+                                        <input class="input_content" type="email" name="email" id="email" placeholder="Введіть ваш емейл">
+                                    </div>
+                                    <!-- <p class="input_label">Телефон:</p> -->
+                                    <div class="user-info_input">
+                                        <input class="input_content" type="text" name="phone" id="phone" placeholder="Введіть ваш номер телефону">
+                                    </div>
 
-                                    <label for="input_checkbox">
-                                        <input type="checkbox" name="input_checkbox" value="check" id="input_agree" />
-                                    </label>
-
-                                    <button type="submit">Submit</button>
-                                </div>
-                                <div class="rent_form">
-                                    <p class="rent_form_title">Форма бронювання</p>
-                                </div>
-                            </form>
+                                    <div class="user-info_input_agree">
+                                        <input type="checkbox" name="agree" id="agree">
+                                        <p class="input_label">Я погоджуюсь з політикою компанії</p>
+                                    </div>
+                                    <button type="submit" class="form-btn">Зарезервувати</button>
+                                </form>
+                        </div>
+                        </div>
+                        <div class="reserv_text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p>
                         </div>
                     </section>
                 </main>
@@ -46,8 +65,8 @@
                 <%- include('../partials/footer'); %>
     </div>
 
-    <script src="http://localhost:4000/js/index.js"></script>
-    <script src="http://localhost:4000/js/reserv.js"></script>
+    <script type="module" src="http://localhost:4000/js/index.js"></script>
+    <script type="module" src="http://localhost:4000/js/reserv.js"></script>
 </body>
 
 </html>

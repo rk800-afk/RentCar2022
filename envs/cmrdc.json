@@ -6,7 +6,8 @@
     "MONGO_URL": "mongodb://127.0.0.1:27017/",
     "MONGO_DB": "rom-car",
     "ACCESS_TOKEN": "jsjgosfdjogioaqOSSAJohhohdgdoghoo",
-    "ACCESS_TOKEN_EXPIRES": 8343
+    "ACCESS_TOKEN_EXPIRES": 8343,
+    "TELEGRAM_BOT_TOKEN_UNIQ": "5442420039:AAE-4mNFju_FWS1T-HmolMWvRpO3_VEkHFU"
   },
   "production": {
     "NODE_ENV": "production",

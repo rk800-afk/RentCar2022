@@ -5,6 +5,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import session from "express-session";
+import TelegramBot from "node-telegram-bot-api"
 
 import database from "./db/index.mjs";
 
@@ -13,6 +14,7 @@ import middlewarePassport from "./shared/middleware/passport.js"
 import API from './api/index.js'
 import { filesRoutes } from './sendFiles/index.js'
 import setUserToReq from "./shared/middleware/set-user-to-req.js";
+import notFound from "./shared/middleware/404.js";
 
 const app = express();
 
@@ -55,6 +57,21 @@ const bootstrap = () => {
 
   filesRoutes(app)  // Render Images, Files, Pages, JS, Styles 
   API(app); // API'S
+  app.use(notFound) // 404
+
+  const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN_UNIQ, {polling: true});
+
+  // Listen for any kind of message. There are different kinds of
+  // messages.
+  bot.on('message', (msg) => {
+      const chatId = msg.chat.id;
+
+      console.log(chatId);
+      console.log(msg.message_id);
+  
+      // send a message to the chat acknowledging receipt of their message
+      bot.sendMessage(chatId, 'Received your message');
+  });
 
   //     app.get('*', (_req, res) => {
   //         res.sendFile(

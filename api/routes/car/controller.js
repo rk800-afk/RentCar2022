@@ -1,10 +1,24 @@
-import fetch from "node-fetch";
+import TelegramBot from "node-telegram-bot-api";
 
 import { createFilter } from "./filter.js";
 import { Car } from "../../../db/models/index.mjs";
 
 // V8 JS => NODEJS 01001010101
 // LIBUV => CROSS-PLATFORM, NON BLOCKING I/O, EVENT LOOP
+
+export const sendToRequest = async (req, res) => {
+    try {
+        const { name, lastName, email, phone } = req.body
+        const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN_UNIQ, {polling: true});
+
+        // Listen for any kind of message. There are different kinds of
+        // messages.
+       bot.sendMessage(976234188, `New order request by user ${email} FULL name user - ${name + lastName}; phone - ${phone}`)
+       res.status(200).send({ msg: "Good" })
+    } catch (error) {
+        console.log(error?.message);
+    }
+}
 
 export const createCar = async (req, res) => {
     try {
@@ -35,8 +49,8 @@ export const deleteCar = async (req, res) => {
         if (!carId) {
             res.status(400).send({ message: "You must set carId" })
         }
-        await Car.deleteOne({ $where: { _id: carId } })
-        res.send(200).send({ deletedCarById: carId })
+        await Car.deleteOne( { _id: carId } )
+        res.status(200).send({ deletedCarById: carId })
     } catch (error) {
         console.log(error?.message);
     }
@@ -51,6 +65,7 @@ export const getCarById = async (req, res) => {
         res.status(200).send({ car: fetchCar })
     } catch (error) {
         console.log(error?.message);
+        res.status(500).send({})
     }
 }
 

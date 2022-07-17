@@ -3,7 +3,7 @@
         <p><%= car.title %></p>
     </div>
     <img class="rent_card_image"
-        src="<%- include('../partials/path'); %><%= car.image?.filename %>" width="220"
+        src=<%= car.image.filename %> width="220"
         height="120" alt="Smille">
     <div class="rent_content_list">
         <div class="list_container">
@@ -28,23 +28,25 @@
         </div>
     </div>
     <div class="rent_card_prices">
-        <div class="rent_card_tile">
+        <div class="rent_card_title">
             <p class="rent_card_day">1-2 суток</p>
-            <p class="rent_card_price">$30</p>
+            <p class="rent_card_price"><%= car.price.one %> </p>
         </div>
-        <div class="rent_card_tile">
+        <div class="rent_card_title">
             <p class="rent_card_day">3-10 суток</p>
-            <p class="rent_card_price">$34</p>
+            <p class="rent_card_price"><%= car.price.two %></p>
         </div>
-        <div class="rent_card_tile">
+        <div class="rent_card_title">
             <p class="rent_card_day">11-20 суток</p>
-            <p class="rent_card_price">$43</p>
+            <p class="rent_card_price"><%= car.price.third %></p>
         </div>
-        <div class="rent_card_tile">
+        <div class="rent_card_title">
             <p class="rent_card_day">20 + суток</p>
-            <p class="rent_card_price">$34</p>
+            <p class="rent_card_price"><%= car.price.fourth %></p>
         </div>
     </div>
 
-    <button type="button" class="rent_card_confirm">Оренда</button>
+    <% if (type?.label !== 'reserv') { %>
+    <a href=http://localhost:4000/reserv/<%= car._id %> class="rent_card_confirm">Оренда</a>
+    <% } %>
 </div>

@@ -29,7 +29,12 @@ export const viewContactPage = (_req, res) => {
     res.render(path.resolve("RentCardemo/pages/contact"));
 }
 
-export const viewReservPage = (_req, res) => {
-    res.render(path.resolve("RentCardemo/pages/reserv"));
+export const viewReservPage = async (_req, res) => {
+    const response = await fetch(`http://localhost:4000/api/cars/${_req.params.carId}`)
+    const {car} = await response.json()
+    if(!response.ok) {
+        res.redirect("http://localhost:4000/404")
+    }
+    res.render(path.resolve("RentCardemo/pages/reserv"), {car});
 }
 

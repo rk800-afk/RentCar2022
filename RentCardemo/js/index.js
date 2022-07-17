@@ -29,12 +29,13 @@ if (!authService.getUserFromLocalStorage()) {
   btnLogOut.classList.add("none")
 }
 
+
 let sideBarOpened = false;
 const pathname = window.location.pathname;
 if (
   pathname === "/rent" ||
   pathname === "/contact" ||
-  pathname === "/reserv" ||
+  pathname.split("/")[1] === "reserv" ||
   pathname === "/pages/rent.html" ||
   pathname === "/RentCardemo/pages/rent.html"
 ) {
@@ -87,7 +88,7 @@ function openCloseSideBar() {
     if (
       pathname === "/rent" ||
       pathname === "/contact" ||
-      pathname === "/reserv" ||
+      pathname.split("/")[1] === "reserv" ||
       pathname === "/pages/rent.html" ||
       pathname === "/RentCardemo/pages/rent.html"
     ) {

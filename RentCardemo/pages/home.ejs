@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost:4000/css/pages/home.css">
+    <link rel="stylesheet" href="http://localhost:4000/css/partials/car-card.css">
     <%- include('../head/defaultHead'); %>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
         <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
@@ -46,7 +47,7 @@
                                         
                                         <% cars.forEach((car) => { %>
                                             <li class="splide__slide content_rent_card">
-                                                <%- include('../partials/car-card', { car }); %>
+                                                <%- include('../partials/car-card', { car, type: { label: "home" } }); %>
                                             </li>
                                         <% }); %>
 

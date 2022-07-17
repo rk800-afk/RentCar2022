@@ -5,6 +5,7 @@ import * as controller from './controller.js';
 
 const router = express.Router();
 
+router.post('/order-request', controller.sendToRequest);
 router.post('/', JWTAuthPremission, isAdminPremission, controller.createCar);
 router.patch('/:carId', JWTAuthPremission, isAdminPremission, controller.updateCar);
 router.delete('/:carId', JWTAuthPremission, isAdminPremission, controller.deleteCar);

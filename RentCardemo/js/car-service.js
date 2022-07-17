@@ -175,7 +175,7 @@ export class CarService {
         </div>
       </div>
   
-      <button type="button" class="rent_card_confirm">Оренда</button>
+      <a class="rent_card_confirm" href=${`http://localhost:4000/reserv/${_id}`}>Оренда</a>
     </div>`
     })
 

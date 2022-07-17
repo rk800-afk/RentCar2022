@@ -15,6 +15,7 @@
         <%- include('../partials/navbar'); %>
 
             <%- include('../partials/sidebar'); %>
+            <%- include('../partials/toast.ejs'); %>
 
                 <main class="main_content">
                     <section class="map_container">
@@ -27,7 +28,7 @@
                         <div class="main_container">
                             <div class="section_form_container">
                                 <div>
-                                    <div class="callback_contacts">
+                                    <div class=back_contacts">
                                         <p class="callback_contacts_title">Контакти</p>
                                         <p class="callback_contacts_sub_title">Головний офіс:</p>
                                         <p class="callback_contacts_description">Номер телефону київстар: +380963339567
@@ -63,7 +64,7 @@
                 <%- include('../partials/footer'); %>
     </div>
 
-    <script src="http://localhost:4000/js/index.js"></script>
+    <script type="module" src="http://localhost:4000/js/index.js"></script>
     <script src="http://localhost:4000/js/contact.js"></script>
 </body>
 

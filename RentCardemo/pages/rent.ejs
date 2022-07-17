@@ -32,6 +32,7 @@
                                         <h3>X</h3>
                                     </button>
                                 </div>
+                            </div>
                                 <div class="form_wrapper">
                                     <form id="modal_form_id" class="modal_form">
                                         <div class="preview-image_file-content">
@@ -83,7 +84,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                  
 
                     <main class="main_content">
                         <section class="filter_section">
@@ -106,28 +107,26 @@
                                         <h3>
                                             <%= user.email %>
                                         </h3>
-                                        <<<<<<< HEAD <div>
-                                            <button type="button" class="admin_content_btn_add-car edit">
+                                     <div>
+                                            <button type="button" class="admin_content_btn_add-car admin_btn delete">
+                                                Delete a Enity (Car)
+                                            </button>
+                                            <button type="button" id="admin-edit-btn" class="admin_content_btn_add-car admin_btn edit228">
                                                 Edit a Enity (Car)
                                             </button>
-                                            <button type="button" class="admin_content_btn_add-car create">
+                                            <button type="button" class="admin_content_btn_add-car admin_btn create">
                                                 Add New Enriry (Car)
                                             </button>
                                     </div>
-                                    =======
-                                    <button type="button" class="admin_content_btn_add-car admin_btn">
-                                        Add New Enriry (Car)
-                                    </button>
-                                    >>>>>>> cfa4ba949e3154caeb9b7444f0178058de986c08
-                            </div>
-                            <% } %>
+                                </div>
+                                <% } %>
 
                                 <div class="rent_car_container"></div>
 
-                                <h1 class="not_found_cars_text"></h1>
-    </div>
-    </section>
-    </main>
+                                    <h1 class="not_found_cars_text"></h1>
+                            </div>
+                            </section>
+                            </main>
 
     <%- include('../partials/footer'); %>
         </div>

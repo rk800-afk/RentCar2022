@@ -38,6 +38,7 @@
     "multer-gridfs-storage": "^5.0.2",
     "node-fetch": "^3.2.8",
     "node-localstorage": "^2.2.1",
+    "node-telegram-bot-api": "^0.58.0",
     "nodemon": "^2.0.19",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
