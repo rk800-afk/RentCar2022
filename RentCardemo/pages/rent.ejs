@@ -30,11 +30,11 @@
                                     </button>
                                 </div>
                                <div class="form_wrapper">
-                                <form class="modal_form">
+                                <form id="modal_form_id" class="modal_form">
                                     <div class="preview-image_file-content">
                                         <div class="flex">
-                                            <input type="file" id="modal_form-image" accept="image/*" required>
-                                            <div class="content_image_preview_close">x</div>
+                                            <input type="file" id="modal_form-image" class="form_image_choose" accept="image/*" required>
+                                            <div class="content_image_preview_close admin_btn">x</div>
                                         </div>
                                         <div class="render-image"></div>
                                     </div>
@@ -74,7 +74,8 @@
                                </div>
                               
                                <div class="flex">
-                                <button id="btn_submit" type="button">Submit</button>
+                                <button id="btn_clear" class="admin_btn" type="button">Clear</button>
+                                <button id="btn_submit" class="admin_btn" type="button">Submit</button>
                                </div>
                             </div>
                     </div>
@@ -100,7 +101,7 @@
                                         <h3>
                                             <%= user.email %>
                                         </h3>
-                                        <button type="button" class="admin_content_btn_add-car">
+                                        <button type="button" class="admin_content_btn_add-car admin_btn">
                                             Add New Enriry (Car)
                                         </button>
                                     </div>
