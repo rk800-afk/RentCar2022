@@ -16,7 +16,7 @@ import setUserToReq from "./shared/middleware/set-user-to-req.js";
 import notFound from "./shared/middleware/404.js";
 
 // BOT WEB TELE ROMCAR
-import { bot } from './shared/services/bot-telegram.js'
+// import { bot } from './shared/services/bot-telegram.js'
 
 const app = express();
 
@@ -63,19 +63,17 @@ const bootstrap = () => {
 
   // Listen for any kind of message. There are different kinds of
   // messages.
-  bot.on('message', (msg) => {
-    const chatId = msg.chat.id;
+  // bot.on('message', (msg) => {
+  //   const chatId = msg.chat.id;
 
-    console.log(chatId);
-    console.log(msg.message_id);
+  //   console.log(msg.message_id);
 
-    // send a message to the chat acknowledging receipt of their message
-    bot.sendMessage(chatId, 'Received your message');
-  });
+  //   // send a message to the chat acknowledging receipt of their message
+  //   bot.sendMessage(chatId, 'Received your message');
+  // });
 
   //     app.get('*', (_req, res) => {
   //         res.sendFile(
-  //             path.resolve(
   //                 __dirname + '/RentCardemo/styles/pages/*.css',
   //             )
   //         );
