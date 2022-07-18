@@ -1,10 +1,16 @@
 .hero_section {
   padding: 30px 0;
+  margin-top: 20px;
 }
 
 .reserv_title{
-  text-align: center;
-  margin-bottom: 40px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.reserv_title_span{
+  border-bottom: 3px solid var( --text-hover-color);
 }
 
 .main_container{
@@ -13,11 +19,17 @@
 }
 
 .card_section{
-  width: 46%;
+  width: 47%;
+  display: flex;
+  align-items: center;
   
 }
+
+.rent_card{
+  width: 100%!important;
+}
 .form_section{
-  width: 46%;
+  width: 47%;
   display: flex;
   justify-content: center;
 }
@@ -29,28 +41,95 @@
   row-gap: 20px;
   padding: 20px 40px;
 
-  border: 2px solid var(--background-color);
+  background-color: var(--background-color);
 
+  border-bottom: 3px solid var( --text-hover-color);
+  border-right: 4px solid var( --text-hover-color);
   border-radius: 20px;
 }
 
 .input_content{
+  background-color: inherit;
   font-size: 18px;
   padding: 5px 40px 0 40px;
-  text-align: center;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid grey;
   width: 100%;
   height: 40px;
+}
+
+.input_hover_anim{
+  position: relative;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.input_content:hover {
+.input_hover_anim:hover {
   transform: scale(1.05);
   box-shadow: 0 3px 10px var(--company-section);
 }
 
+.input_content_name::after{
+  content: "";
+  background-image: url(http://localhost:4000/local/images/name_icon2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  left: 0.5%;
+}
+
+
+.input_content_lastName::after{
+  content: "";
+  background-image: url(http://localhost:4000/local/images/lastname_icon2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  left: 0.5%;
+}
+
+
+.input_content_phone::after{
+  content: "";
+  background-image: url(http://localhost:4000/local/images/phone_icon2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  left: 2%;
+}
+
+
+.input_content_email::after{
+  content: "";
+  background-image: url(http://localhost:4000/local/images/email_icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  left: 1.5%;
+}
+
+
 .user-info_input_agree{
+  padding-top: 20px;
   display: flex;
   column-gap: 15px;
 }
@@ -58,7 +137,7 @@
 .form-btn {
   width: 80%;
   margin: auto;
-  margin-top: 5DDpx;
+  margin-top: 5px;
   padding: 10px 20px;
   border: 2px solid var(--background-content-color);
   background-color: var(--body-background);
@@ -71,5 +150,10 @@
 }
 
 .reserv_text{
-  padding: 40px 20vh;
+  padding: 40px 200px;
+}
+
+.callback_input_error {
+  border-bottom: 2px solid palevioletred;
+  transition: all .3s;
 }

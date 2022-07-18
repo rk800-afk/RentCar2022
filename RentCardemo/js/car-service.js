@@ -137,7 +137,7 @@ export class CarService {
         <p align="center">${title}</p>
         ${auth.getUserFromLocalStorage() ? `<span>${_id}</span>` : ``}
       </div>
-      <img class="rent_card_image" src=${isImage} width="220" height="120" alt="Smille">
+      <img class="rent_card_image" src=${isImage} width="220" height="190" alt="Smille">
       <div class="rent_content_list">
         <div class="list_container">
           <img class="rent_list_svg" src="http://localhost:4000/local/images/fuel.svg" width="28" height="28" alt="Benz">

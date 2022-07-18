@@ -114,6 +114,12 @@
   height: 100%;
 }
 
+/* Костиль:) */
+.rent_card_image
+{
+  height: 150px!important;
+}
+
 .news_article {
   padding: 70px 0;
   background-color: var(--backgroud-color-news);

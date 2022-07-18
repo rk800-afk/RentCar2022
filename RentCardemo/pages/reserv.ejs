@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost:4000/css/pages/reserv.css">
     <link rel="stylesheet" href="http://localhost:4000/css/partials/car-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/css/partials/toast.css">
     <%- include('../head/defaultHead'); %>
 </head>
 
@@ -21,27 +22,23 @@
 
                 <main class="main_content">
                     <section class="hero_section">
-                        <h1 class="reserv_title">Резервація автомобіля</h1>
                         <div class="main_container">
                             <div class="card_section">
                                 <%- include('../partials/car-card', { car, type: { label: "reserv" } }); %>
                             </div>
                             <div class="form_section">
                                 <form id="form" class="form">
-                                    <!-- <p class="input_label">Ім'я:</p> -->
-                                    <div class="user-info_input">
+                                    <h1 class="reserv_title"><span class="reserv_title_span">Резервація</span> автомобіля</h1>
+                                    <div class="input_content_name input_hover_anim">
                                         <input class="input_content" type="text" name="name" id="name" placeholder="Введіть ваше ім'я">
                                     </div>
-                                    <!-- <p class="input_label">Прізвище:</p> -->
-                                    <div class="user-info_input">
+                                    <div class="input_content_lastName input_hover_anim">
                                         <input class="input_content" type="text" name="lastName" id="lastName" placeholder="Введіть ваше прізвище">
                                     </div>
-                                    <!-- <p class="input_label">Емейл:</p> -->
-                                    <div class="user-info_input">
-                                        <input class="input_content" type="email" name="email" id="email" placeholder="Введіть ваш емейл">
+                                    <div class="input_content_email input_hover_anim">
+                                        <input class="input_content" type="text" name="email" id="email" placeholder="Введіть ваш емейл">
                                     </div>
-                                    <!-- <p class="input_label">Телефон:</p> -->
-                                    <div class="user-info_input">
+                                    <div class="input_content_phone input_hover_anim">
                                         <input class="input_content" type="text" name="phone" id="phone" placeholder="Введіть ваш номер телефону">
                                     </div>
 
@@ -54,10 +51,17 @@
                         </div>
                         </div>
                         <div class="reserv_text">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime quod minus illum animi! Nulla, officiis laboriosam nemo nesciunt, vero iste quod aliquam doloribus nisi maiores quaerat, doloremque perspiciatis voluptatum.</p>
+                            <h2 class="reserv_title"><span class="reserv_title_span">Про</span> нас</h1>
+                            <p>Вам потрібна оренда авто у Києві чи Львові ?</p>
+                            <p>Компанія Google cars з радістю надасть Вам послуги з прокату авто. Безкоштовне бронювання, повне страхування, можливість орендувати авто з безлімітним пробігом.</p>
+                            <p>Авто можна орендувати в аеропорт Бориспіль, Жуляни, на вокзалі або отримати за адресою.</p>                    
+                            <p>Що потрібно для оформлення оренди авто:</p>
+                            <ol>
+                                <li>паспорт;</li>
+                                <li>водійське посвідчення;</li>
+                                <li>ІНН( для громадян України)</li>
+                            </ol>
+                            <p>Вартість оренди авто залежить від періода та розраховується індивідуально.Дїє система лояльності для постійних клієнтів</p>
                         </div>
                     </section>
                 </main>
