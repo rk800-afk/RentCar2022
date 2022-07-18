@@ -66,7 +66,6 @@ const bootstrap = () => {
   // bot.on('message', (msg) => {
   //   const chatId = msg.chat.id;
 
-  //   console.log(chatId);
   //   console.log(msg.message_id);
 
   //   // send a message to the chat acknowledging receipt of their message
@@ -75,7 +74,6 @@ const bootstrap = () => {
 
   //     app.get('*', (_req, res) => {
   //         res.sendFile(
-  //             path.resolve(
   //                 __dirname + '/RentCardemo/styles/pages/*.css',
   //             )
   //         );
