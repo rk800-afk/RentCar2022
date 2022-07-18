@@ -3,13 +3,13 @@
     <div id="side_bar_content" class="side_bar_content">
         <ul class="side_bar_links">
             <li class="mp_side_bar_li">
-                <p class="mp_side_bar_link">Прокат</p>
-                <ul class="mp_side_bar_dropdown">
+                <p class="mp_side_bar_link"><a href="<%- include('../partials/path'); %>/rent">Прокат</a></p>
+                <!-- <ul class="mp_side_bar_dropdown">
                     <li class="side_bar_li_dropdown">Пункт 1</li>
                     <li class="side_bar_li_dropdown">Пункт 2</li>
                     <li class="side_bar_li_dropdown">Пункт 3</li>
                     <li class="side_bar_li_dropdown">Пункт 4</li>
-                </ul>
+                </ul> -->
             </li>
             <li class="mp_side_bar_li">
                 <p class="mp_side_bar_link">Послуги</p>
@@ -21,7 +21,7 @@
                 </ul>
             </li>
             <li class="mp_side_bar_li">
-                <p class="mp_side_bar_link">Про компанію</p>
+                <p class="mp_side_bar_link"><a href="http://localhost:4000/#info_href">Про компанію</a></p>
                 <ul class="mp_side_bar_dropdown">
                     <li class="side_bar_li_dropdown">Пункт 1</li>
                     <li class="side_bar_li_dropdown">Пункт 2</li>
@@ -29,8 +29,8 @@
                     <li class="side_bar_li_dropdown">Пункт 4</li>
                 </ul>
             </li>
-            <li><a class="mp_side_bar_link" href="#">Новини</a></li>
-            <li><a class="mp_side_bar_link" href="#">Контакти</a></li>
+            <li><a class="mp_side_bar_link" href="http://localhost:4000/#news_href">Новини</a></li>
+            <li><a class="mp_side_bar_link" href="<%- include('../partials/path'); %>/contact">Контакти</a></li>
         </ul>
         <button class="side_bar_btn">Зв'язатися з нами</button>
     </div>
