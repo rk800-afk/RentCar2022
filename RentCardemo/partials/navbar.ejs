@@ -10,14 +10,14 @@
                 <ul class="nav_links">
                     <li class="mp_nav_li">
                         <p class="mp_nav_link"><a href="<%- include('../partials/path'); %>/rent">Прокат</a></p>
-                        <div id="mp_nav_li_dropdown" class="mp_nav_li_dropdown">
+                        <!-- <div id="mp_nav_li_dropdown" class="mp_nav_li_dropdown">
                             <ul class="mp_ul_dropdown">
                                 <li class="mp_li_dropdown">Пункт</li>
                                 <li class="mp_li_dropdown">Пункт</li>
                                 <li class="mp_li_dropdown">Пункт</li>
                                 <li class="mp_li_dropdown">Пункт</li>
                             </ul>
-                        </div>
+                        </div> -->
                     </li>
                     <!-- <li class="mp_nav_li">
                         <p class="mp_nav_link">Послуги</p>
@@ -31,16 +31,16 @@
                         </div>
                     </li> -->
                     <li class="mp_nav_li">
-                        <p class="mp_nav_link">Про компанію</p>
+                        <p class="mp_nav_link"><a href="http://localhost:4000/#info_href">Про компанію</a></p>
                     </li>
-                    <li><a class="mp_nav_link" href="#">Новини</a></li>
+                    <li><a class="mp_nav_link" href="http://localhost:4000/#news_href">Новини</a></li>
                     <li><a class="mp_nav_link" href="<%- include('../partials/path'); %>/contact">Контакти</a></li>
                 </ul>
             </nav>
         </div>
         <div class="header_phone_content">
             <a class="header_phone" href="tel:380123456313">+(380) 123456313</a>
-            <button class="header_btn">Зв'язатися з нами</button>
+            <button class="header_btn"><a href="http://localhost:4000/contact#contact_href">Зв'язатися з нами</a></button>
             <button id="hamburger" class="hamburger_navbar" aria-label="Main Menu">
                 <svg width="43" height="43" viewBox="0 0 100 100">
                     <path class="line line1"

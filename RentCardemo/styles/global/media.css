@@ -9,12 +9,19 @@
 }
 
 @media (max-width: 1200px) {
+
   .main_container {
     max-width: initial;
     width: initial;
     padding: 0;
     margin: 0 38px;
+    justify-content: center;
   }
+
+  .reserve_section{
+    justify-content: space-between;
+  }
+
   .rent_car_container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -38,9 +45,22 @@
   .header_phone {
     font-size: 18px;
   }
+
+  .reserv_text{
+    padding: 40px 100px;
+  }
 }
 
 @media (max-width: 1000px) {
+
+  .form_section{
+    width: 48%;
+  }
+
+  .card_section{
+    width: 48%;
+  }
+
   .content_company_card {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
@@ -100,6 +120,21 @@
 }
 
 @media (max-width: 900px) {
+  .reserve_section
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form_section{
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  .card_section{
+    width: 80%;
+  }
+  
   .grid_content {
     grid-template-columns: 1fr;
     row-gap: 10px;
@@ -112,6 +147,14 @@
 }
 
 @media (max-width: 750px) {
+  .form_section{
+    width: 90%;
+  }
+
+  .card_section{
+    width: 90%;
+  }
+
   .content_company_card {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, fr);
@@ -133,6 +176,18 @@
 }
 
 @media (max-width: 600px) {
+  .form_section{
+    width: 100%;
+  }
+
+  .card_section{
+    width: 100%;
+  }
+
+  .reserv_text{
+    padding: 30px 50px
+  }
+
   .footer_content {
     grid-template-columns: 1fr;
     padding: 30px 50px;
