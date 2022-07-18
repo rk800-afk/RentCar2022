@@ -13,7 +13,7 @@ export const sendToRequest = async (req, res) => {
 
         // Listen for any kind of message. There are different kinds of
         // messages.
-        bot.sendMessage(976234188, `New order request by user ${email} FULL name user - ${name + lastName}; phone - ${phone}`)
+        bot.sendMessage(976234188, `New order request by user.\nEmail: ${email}\nName: ${name}\nLast name: ${lastName}\nPhone: ${phone}`)
         res.status(200).send({ msg: "Good" })
     } catch (error) {
         console.log(error?.message);
