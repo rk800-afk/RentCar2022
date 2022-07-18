@@ -1,4 +1,5 @@
-import TelegramBot from "node-telegram-bot-api";
+// BOT WEB TELE ROMCAR
+import { bot } from '../../../shared/services/bot-telegram.js'
 
 import { createFilter } from "./filter.js";
 import { Car } from "../../../db/models/index.mjs";
@@ -9,12 +10,11 @@ import { Car } from "../../../db/models/index.mjs";
 export const sendToRequest = async (req, res) => {
     try {
         const { name, lastName, email, phone } = req.body
-        const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN_UNIQ, {polling: true});
 
         // Listen for any kind of message. There are different kinds of
         // messages.
-       bot.sendMessage(976234188, `New order request by user ${email} FULL name user - ${name + lastName}; phone - ${phone}`)
-       res.status(200).send({ msg: "Good" })
+        bot.sendMessage(976234188, `New order request by user ${email} FULL name user - ${name + lastName}; phone - ${phone}`)
+        res.status(200).send({ msg: "Good" })
     } catch (error) {
         console.log(error?.message);
     }
@@ -49,7 +49,7 @@ export const deleteCar = async (req, res) => {
         if (!carId) {
             res.status(400).send({ message: "You must set carId" })
         }
-        await Car.deleteOne( { _id: carId } )
+        await Car.deleteOne({ _id: carId })
         res.status(200).send({ deletedCarById: carId })
     } catch (error) {
         console.log(error?.message);
