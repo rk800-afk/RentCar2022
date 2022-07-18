@@ -7,6 +7,19 @@ import { Car } from "../../../db/models/index.mjs";
 // V8 JS => NODEJS 01001010101
 // LIBUV => CROSS-PLATFORM, NON BLOCKING I/O, EVENT LOOP
 
+export const sendToRequestMesasgesFormNLTU = async (req, res) => {
+    try {
+        const { name, description, email, phone } = req.body
+
+        // Listen for any kind of message. There are different kinds of
+        // messages.
+        bot.sendMessage(976234188, `New message request by user ${email} FULL name user - ${name + description}; phone - ${phone}`)
+        res.status(200).send({ msg: "Good" })
+    } catch (error) {
+        console.log(error?.message);
+    }
+}
+
 export const sendToRequest = async (req, res) => {
     try {
         const { name, lastName, email, phone } = req.body
