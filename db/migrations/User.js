@@ -1,19 +1,19 @@
-const bcrypt = require("bcryptjs")
-const admin = require('../mock/users.json')
+import bcrypt from "bcryptjs"
+import admin from "../mock/users.json"
 
 module.exports = {
   async up(db) {
     try {
-    // How many rounds bcrypt should hash password (2^round - 2 involution to power rounds)
-    const salt = bcrypt.genSaltSync(10);
+      // How many rounds bcrypt should hash password (2^round - 2 involution to power rounds)
+      const salt = bcrypt.genSaltSync(10);
 
-    // Create admin with email and hashed password
-    const user = {
-      ...admin,
+      // Create admin with email and hashed password
+      const user = {
+        ...admin,
         password: bcrypt.hashSync("12345678", salt),
-    };
-    
-        await db
+      };
+
+      await db
         .collection('users')
         .insertOne(user);
     } catch (e) {
@@ -23,7 +23,7 @@ module.exports = {
 
   async down(db) {
     try {
-    await db
+      await db
         .collection('users')
         .deleteMany();
     } catch (e) {

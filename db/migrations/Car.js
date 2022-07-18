@@ -1,4 +1,4 @@
-const cars = require('../mock/cars.json')
+import cars from "../mock/cars.json"
 
 // {
 //   "title": "car1",
@@ -60,7 +60,7 @@ const cars = require('../mock/cars.json')
 module.exports = {
   async up(db) {
     try {
-    await db
+      await db
         .collection('cars')
         .insertMany(cars);
     } catch (e) {
@@ -70,7 +70,7 @@ module.exports = {
 
   async down(db) {
     try {
-    await db
+      await db
         .collection('cars')
         .deleteMany();
     } catch (e) {
